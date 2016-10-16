@@ -1,0 +1,66 @@
+//=====================================================================
+//
+//     Undead Hunter
+//        -Icytux
+//
+//=====================================================================
+
+actor UndeadHunter 15489
+{
+  obituary "%o was the prey for an undead hunter."
+  health 120
+  radius 22
+  height 56
+  mass 100
+  speed 14
+  painchance 70
+  activesound "shotguy/active" //if use in something else than doom, you have to provide theese sounds yourself.
+  attacksound "shotguy/attack"
+  painsound "undeadhunter/pain"
+  deathsound "undeadhunter/death"
+  seesound "undeadhunter/activate"
+  dropitem "Shotgun" 256
+  MONSTER
+  +FLOORCLIP
+  +DONTHURTSPECIES
+  states
+  {
+  Spawn:
+    DEHU AB 10 A_Look
+    loop
+  See:
+    DEHU AABBCCDD 2 A_Chase
+    loop
+  Missile:
+    DEHU E 4 A_FaceTarget
+    DEHU F 4 bright A_SPosAttack
+    DEHU E 8
+    goto See
+  Pain:
+    DEHU G 2
+    DEHU G 2 A_Pain
+    goto See
+  Death:
+    DEHU H 5
+    DEHU I 5 A_Scream
+    DEHU J 5 A_NoBlocking
+    DEHU KLM 5
+    DEHU N -1
+    stop
+  XDeath:
+    DEHU O 5 A_XScream
+    DEHU P 5 A_PlaySound("undeadhunter/xdeath")
+    DEHU Q 5 A_NoBlocking
+    DEHU RSTUV 5
+    DEHU W -1
+    stop
+  Raise:
+    DEHU MLKJIH 3
+    goto See
+  }
+}
+
+actor UndeadHunderSpot : CustomMonsterInvasionSpot 15490
+{
+dropitem UndeadHunter
+}

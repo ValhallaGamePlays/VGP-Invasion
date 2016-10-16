@@ -1,0 +1,59 @@
+{
+mapname = VGPINV01
+gamemode = invasion
+wavelimit = 6
+}
+
+{
+mapname = VGPINV02
+gamemode = invasion
+wavelimit = 6
+}
+
+{
+mapname = VGPINV03
+gamemode = invasion
+wavelimit = 6
+}
+
+{
+mapname = VGPINV04
+gamemode = invasion
+wavelimit = 6
+}
+
+{
+mapname = VGPINV05
+gamemode = invasion
+wavelimit = 6
+}
+
+{
+mapname = VGPINV06
+gamemode = invasion
+wavelimit = 6
+}
+
+{
+mapname = VGPINV07
+gamemode = invasion
+wavelimit = 6
+}
+
+{
+mapname = VGPINV08
+gamemode = invasion
+wavelimit = 6
+}
+
+{
+mapname = VGPINV09
+gamemode = invasion
+wavelimit = 6
+}
+
+{
+mapname = VGPINV10
+gamemode = invasion
+wavelimit = 6
+}

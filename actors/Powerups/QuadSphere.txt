@@ -1,0 +1,24 @@
+actor PowerQuadDamage : PowerDamage 
+	{
+		damagefactor "normal", 4
+		inventory.icon "MEGAA0"
+	}
+	
+actor QuadDamage : PowerupGiver 15666
+	{
+		inventory.pickupmessage "Quad Damage!!"
+		inventory.PickupSound "pickups/quaddamage"
+		Powerup.Colormap 0.0, 0.0, 0.0, 1.0, 0.0, 1.0
+		inventory.maxamount 0
+		inventory.usesound "pickups/quaddamage"
+		powerup.type QuadDamage
+		powerup.duration 1000
+		+AUTOACTIVATE
+		+INVENTORY.FANCYPICKUPSOUND
+			states
+				{
+					Spawn:
+						QUAD ABCD 4 bright
+						loop
+				}
+	}

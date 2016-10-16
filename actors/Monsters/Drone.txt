@@ -1,0 +1,78 @@
+actor Drone 1267
+{
+	//$Category "Robots"
+    Health 150
+    Radius 16
+    Height 24
+    Speed 4
+    PainChance 32
+    MONSTER 
+    +NOGRAVITY
+    +FLOATBOB
+	+NOBLOOD
+    HitObituary "%o was blasted by a drone!"
+	SeeSound "drone/see"
+	ActiveSound "drone/idle"
+	PainSound "drone/pain" 
+	DeathSound "drone/die" 
+    States
+    {
+    Spawn:
+        DRON A 3 bright A_Look
+        Loop
+    See:
+        DRON AAA 1 bright A_Chase
+        Loop
+    Missile:
+        DRON A 3 bright
+	MissileLoop:
+        DRON D 0 bright A_CustomMissile("DroneShot",4,-12)
+		DRON D 0 bright A_CustomMissile("DroneShot",4,12)
+		DRON B 3 bright
+    	DRON C 3 bright
+		DRON D 3 bright
+		DRON D 0 A_Jump(128,1)
+    	Goto See
+		DRON D 0 A_SpidRefire
+		Loop
+    Pain:
+        DRON A 3 bright A_Pain
+        Goto See
+    Death:
+        DRON E 0 bright A_NoBlocking
+		DRON E 0 bright A_NoGravity
+		DRON E 0 bright A_Scream
+		DRON E 6 bright A_SetTranslucent(1.0,0)
+		DRON F 6 bright A_SetTranslucent(0.9,0)
+		DRON G 6 bright A_SetTranslucent(0.8,0)
+		DRON H 6 bright A_SetTranslucent(0.7,0)
+		DRON I 6 bright A_SetTranslucent(0.6,0)
+		DRON J 6 bright A_SetTranslucent(0.5,0)
+		DRON K 6 bright A_SetTranslucent(0.4,0)
+        NULL A -1
+        Stop
+    }
+}
+
+actor DroneShot : SerpentFX
+{
+  SeeSound "Drone/Fire"
+  Speed 16
+  Damage 1
+  Scale .5
+  States
+  {
+  Spawn:
+    DRFX ABAB 3 bright
+    Goto Spawn
+  Death:
+    DRFX CDEFGH 4 bright
+    Stop
+  }
+
+}
+
+ACTOR DroneSpot : CustomMonsterInvasionSpot 1268
+{
+DropItem Drone
+}

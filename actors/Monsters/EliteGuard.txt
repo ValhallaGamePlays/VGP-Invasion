@@ -1,0 +1,96 @@
+Actor EliteGuard 12370//Thanks MagicWazard
+{
+Health 130
+Radius 20
+Height 56
+Mass 300
+Speed 12
+PainChance 100
+MONSTER
++FLOORCLIP
+SeeSound "elite/see"
+PainSound "elite/pain"
+DeathSound "elite/death"
+ActiveSound "elite/see"	
+AttackSound "elite/fire"
+Obituary "%o get arrested by an Elite Guard."
+Dropitem "Clip"
+//Dropitem "ClipOfBullets"(this is for his use on strife)
+States
+{
+Spawn:
+	ELIT E 1 A_Look
+	Loop
+See:
+	ELIT AABBCCDD 3 A_Chase
+	Loop
+Pain:
+	ELIT F 3 A_Pain
+	Goto See
+Missile:
+	ELIT FG 6 A_FaceTarget
+	ELIT H 2 Bright A_CposAttack
+	ELIT G 3 A_CPosRefire
+	Goto Missile+2
+Death:
+	TNT1 A 0 A_Jump(128,"Death1","Death2")
+Death1:
+	ELIT O 5 A_Scream
+	ELIT P 5 A_Fall
+	ELIT Q 5
+	ELIT R -1
+	Stop
+Death2:
+	ELIT J 5 A_Scream
+	ELIT K 5 A_Fall
+	ELIT LM 5
+	ELIT N -1
+	Stop
+XDeath:
+	BXDT A 5
+	BXDT B 5 A_XScream
+	BXDT C 5 A_NoBlocking
+	BXDT D 5
+	BXDT EFGH 5
+	BXDT I -1
+	Stop
+//The next states are for his use on Strife, if you gonna use them, remove the regular XDeath state and "ForStrife" from the names
+XDeathForStrife:
+	BXD2 A 4 A_TossGib
+	BXD2 B 4 A_XScream
+	BXD2 C 3 A_NoBlocking
+	BXD2 DEF 3 A_TossGib
+	BXD2 G 3
+	BXD2 H -1
+	Stop
+BurnForStrife:
+	BURN A 3 Bright A_PlaySoundEx("human/imonfire", "Voice")
+	BURN B 3 Bright A_DropFire
+	BURN C 3 Bright A_Wander
+	BURN D 3 Bright A_NoBlocking
+	BURN E 5 Bright A_DropFire
+	BURN FGH 5 Bright A_Wander
+	BURN I 5 Bright A_DropFire
+	BURN JKL 5 Bright A_Wander
+	BURN M 5 Bright A_DropFire
+	BURN N 5 Bright
+	BURN OPQPQ 5 Bright
+	BURN RSTU 7 Bright
+	BURN V -1
+	Stop
+DisintegrateForStrife:
+	DISR A 5 A_PlaySoundEx("misc/disruptordeath", "Voice")
+	DISR BC 5
+	DISR D 5 A_NoBlocking
+	DISR E 5
+	DISR F 5
+	DISR GHIJ 4
+	MEAT D 700
+	Stop
+}
+}
+
+ACTOR EliteGuardSpot : CustomMonsterInvasionSpot 12371
+{
+DropItem EliteGuard
+}

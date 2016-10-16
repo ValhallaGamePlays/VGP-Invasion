@@ -1,0 +1,86 @@
+actor STDarkImp 3102
+{
+	//$Category Monsters
+    Health 110
+    Radius 20
+    Height 56
+    Speed 9
+    PainChance 200
+    MONSTER 
+    +FLOORCLIP
+    SeeSound "imp/sight"
+    PainSound "imp/pain"
+    DeathSound "imp/death"
+    ActiveSound "imp/active"
+    MeleeSound "imp/melee"
+    Obituary "%o was cursed by a dark imp."
+    HitObituary "%o was touched by a dark imp."
+    MissileType DarkFast
+    MeleeDamage 3
+    States
+    {
+    Spawn:
+        DRKS AB 10 A_Look
+        Loop
+    See:
+        DRKS AABBCCDD 3 A_Chase
+        Loop
+    Melee:
+    Missile:
+        DRKS EF 8 A_FaceTarget
+        DRKS G 6 A_ComboAttack
+        Goto See
+    Pain:
+        DRKS H 2
+        DRKS H 2 A_Pain
+        Goto See
+    Death:
+        DRKS I 8
+        DRKS J 8 A_Scream
+        DRKS K 6
+        DRKS L 6 A_Fall
+        DRKS M -1
+        Stop
+    XDeath:
+        DRKI N 5
+        DRKI O 5 A_XScream
+        DRKI P 5
+        DRKI Q 5 A_Fall
+        DRKI RST 5
+        DRKI U -1
+        Stop
+    Raise:
+        DRKS ML 8
+        DRKS KJI 6
+        Goto See
+    }
+}
+
+actor DarkFast
+{
+    Radius 8
+    Height 6
+    Speed 18
+    Damage 3
+    PROJECTILE
+    RENDERSTYLE ADD
+    ALPHA 0.67
+    SeeSound "imp/attack"
+    DeathSound "imp/shotx"
+    MISSILEHEIGHT 0
+    Decal DoomImpScorch
+    States
+    {
+    Spawn:
+        DKB1 AB 4 Bright
+        Loop
+    Death:
+        DKB1 CDE 4 Bright
+        Stop
+    }   
+}
+
+Actor DarkImpSTSpot : CustomMonsterInvasionSpot 3103
+{
+DropItem STDarkImp
+}

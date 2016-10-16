@@ -1,0 +1,70 @@
+// VERSION'S DATE: 2007.03.12
+
+#library "zalfunc"
+#include "zcommon.acs"
+
+// FUNCTION NAME	: PrintSprite()
+// DATE			: 2007.03.12
+// AUTHOR		: Zalewa
+// PURPOSE		: Prints an image on the screen
+
+function void PrintSprite(str f_SpriteName, int f_fTime)
+{
+	setfont(f_SpriteName);
+	hudmessagebold(s:"a" ; HUDMSG_FADEOUT, 0, CR_RED, 0.5, 0.5, f_fTime);
+	setfont("smallfont");
+}
+
+// FUNCTION NAME	: printmapname()
+// DATE			: 2007.02.16
+// MODIFIED BY		: Zalewa
+// ORIGINAL AUTHOR	: Kuchikitaichou
+// ORIGINAL NAME	: printauthor()
+// PURPOSE		: displaying map name
+
+function void printmapname(str s1, str s2, int f_fTime)
+{
+	setfont("bigfont");
+	hudmessage(s:s1; HUDMSG_FADEOUT, 0, CR_GOLD, 0.5, 0.84, f_fTime);
+	setfont("smallfont");
+	hudmessage(s:"\cgby \cc", s:s2; HUDMSG_FADEOUT, 0, CR_RED, 0.5, 0.88, f_fTime);
+}
+
+// FUNCTION NAME	: AssignPlayerToTag()
+// DATE			: 2007.02.16
+// AUTHOR		: Zalewa
+// PURPOSE		: retrieving player number to assign it for example to teleporter's tag,
+//			  useful if there is more than 8 players
+
+function int AssignPlayerToTag(void)
+{
+	int iReturn;
+
+	if (PlayerNumber() < 8)
+		iReturn = PlayerNumber()+1;
+	else
+		iReturn = random(1, 8);
+	
+	return iReturn;
+}
+
+// FUNCTION NAME	: EnableForceField(), DisableForceField
+// DATE			: 2007.05.15
+// AUTHOR		: Zalewa
+// PURPOSE		: Turning on/off forcefields
+
+function void EnableForceField (int f_iLine, str f_strTexture)
+{
+	TranslucentLine(f_iLine, 100, 0);
+	SetLineTexture(f_iLine, SIDE_FRONT, TEXTURE_MIDDLE, f_strTexture);
+	SetLineTexture(f_iLine, SIDE_BACK, TEXTURE_MIDDLE, f_strTexture);
+	SetLineBlocking(f_iLine, BLOCK_EVERYTHING);
+}
+
+function void DisableForceField (int f_iLine)
+{
+	TranslucentLine(f_iLine, 0, 0);
+	SetLineTexture(f_iLine, SIDE_FRONT, TEXTURE_MIDDLE, "-");
+	SetLineTexture(f_iLine, SIDE_BACK, TEXTURE_MIDDLE, "-");
+	SetLineBlocking(f_iLine, OFF);
+}

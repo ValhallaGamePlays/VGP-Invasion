@@ -1,0 +1,139 @@
+actor Maephisto 12380
+{
+
+  obituary "%o was vaporised by a Maephisto."
+  health 3500
+  radius 50
+  height 100
+  mass 1000
+  speed 10
+  scale 0.8
+  painchance 20
+  seesound "sight"
+  painsound "pain"
+  deathsound "death"
+  activesound "idle"
+  MONSTER
+  +BOSS
+  +FLOORCLIP
+  +NOBLOOD
+  +NORADIUSDMG
+  states
+  {
+  Spawn:
+    MMDR E 10 A_Look
+    loop
+  See:
+    MMDR AABBCCDD 4 A_Chase
+    loop
+  Missile:
+    MMDR E 0 bright A_jump(256,"chaingun","bolt","laser")
+    goto see
+  Chaingun:  
+    MMDR E 10 A_facetarget 
+    MMDR H 0 A_playsound("chaingn")
+    MMDR H 4 bright A_CPosAttack
+    MMDR I 4 bright A_CPosAttack
+    MMDR H 4 bright A_CPosAttack
+    MMDR I 4 bright A_CPosAttack 
+    MMDR I 0 A_jump(20,3)
+    MMDR I 0 A_CPosRefire    
+    goto Chaingun+1
+  Bolt:
+    MMDR EEEE 5 A_facetarget     
+    MMDR F 0 bright A_custommissile("energybolt",50,30)
+    MMDR F 10 bright A_custommissile("energybolt",50,-30)    
+    MMDR GG 3 bright A_facetarget
+    goto See
+  Laser:
+    MMDR EEEE 5 A_facetarget
+    MMDR E 0 A_playsound("charge",CHAN_WEAPON,1,0,0)
+    MMDR JKLKJ 5 bright A_facetarget
+    MMDR JKLKJ 4 bright A_facetarget
+    MMDR JKLKJ 3 bright A_facetarget
+    MMDR JKLKJ 2 bright A_facetarget
+    MMDR JKLKJ 1 bright A_facetarget 
+    MMDR JKLKJ 1 bright A_facetarget 
+    MMDR M 0 A_playsound("laser",Chan_AUTO,1,0,0)
+    MMDR M 0 A_givetotarget("flash")
+    MMDR MNOOOOOOOOO 1 bright A_custommissile("laserbeam",60,0,0)    
+    goto see        
+  Death:
+    MMDR P 10 BRIGHT A_Scream
+    MMDR QRS 10 BRIGHT
+    MMDR T 10 BRIGHT A_NoBlocking
+    MMDR U 10 BRIGHT
+    MMDR V 10 BRIGHT
+    MMDR W -1 A_BossDeath
+    stop
+  }
+}
+
+actor energybolt
+{
+  Radius 6
+  Height 16
+  Speed 20
+  Damage 8
+  RenderStyle Add
+  Alpha 1
+  SeeSound "bolt"
+  DeathSound "weapons/rocklx"
+  Decal "Scorch"
+  Projectile
+  states
+  {
+  Spawn:
+    MMDB A 1 bright
+    loop
+  Death:
+    MMDB HIJKL 3 bright
+    stop
+  }
+}
+
+actor laserbeam
+{
+  Radius 20
+  Height 20
+  Speed 40
+  Damage 20
+  RenderStyle Add
+  Alpha 1
+  DeathSound "weapons/bfgx"
+  Projectile
+  +RIPPER
+  states
+  {
+  Spawn:
+    KAMS A 1 bright
+    loop
+  Death:
+    KAXP B 3 bright A_Explode
+    KAXP CDEFGHIJKLM 3 bright
+    stop
+  }
+}
+
+actor flash : CustomInventory
+{  
+  +INVENTORY.QUIET
+  +INVENTORY.UNDROPPABLE
+  +INVENTORY.ALWAYSPICKUP
+  +INVENTORY.AUTOACTIVATE       
+  +COUNTITEM
+  inventory.amount 1
+  inventory.maxamount 0
+  states
+  {
+  pickup:
+    NULL A 1 A_SetBlend("white",1,100)    
+    stop
+
+  }
+}
+
+ACTOR MaephistoSpot : CustomMonsterInvasionSpot 12381
+{
+DropItem Maephisto
+}

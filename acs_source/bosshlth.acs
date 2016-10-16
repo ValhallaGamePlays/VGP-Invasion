@@ -1,0 +1,498 @@
+/* 
+  Author: Zalewa
+  E-Mail: zalewapl@gmail.com
+  Version: 1.1
+  Date: 2009-04-27
+  
+  Changelog
+  [1.1]:
+  - Changed all HUDMSG_FADEOUT occurencies with HUDSMG_PLAIN which
+    should decrease stuttering on weaker machines.
+  - Added DisplayHealthNumeric() function
+  - Fixed: GetPercentage() returns correct values now.
+  [1.0]:
+  - Initial version.
+*/
+
+#include "zcommon.acs"
+#library "bosshlth"
+
+// =============================================================
+// = IMPORTANT NOTE: variables and functions starting with     
+// = 'bosshlthpriv_' and 'priv_' aren't meant to be accessed
+// = outside this library!
+// =============================================================
+
+#define BOSSHLTHPRIV_COLORARRAYSIZE 64
+
+int bosshlthpriv_iColorLevels[BOSSHLTHPRIV_COLORARRAYSIZE] = {100, 45, 15, -1};
+int bosshlthpriv_iColorNames[BOSSHLTHPRIV_COLORARRAYSIZE] = {3, 10, 6, -1};
+//                                                        = {CR_GREEN, CR_YELLOW, CR_RED, 0};
+
+/**
+ * if bosshlthpriv_bTrackMonster is set to true bosshlthpriv_iMaxHealth and 
+ *    bosshlthpriv_iCurrentHealth are set automatically
+ *
+ * if bosshlthpriv_bTrackMonster is set to false bosshlthpriv_iTrackTID is 
+ *    unused, bosshlthpriv_iMaxHealth and bosshlthpriv_iCurrentHealth must be 
+ *    set manually (useful if you want to track more than one monster with 
+ *    single health bar)
+ */
+
+bool bosshlthpriv_bTrackMonster = false;
+int bosshlthpriv_iTrackTID;
+int bosshlthpriv_iMaxHealth;
+int bosshlthpriv_iCurrentHealth;
+
+/**
+ * variables used in DisplayHealth() by SetHudSize():
+ */
+int bosshlthpriv_iHudX = 800;
+int bosshlthpriv_iHudY = 600;
+
+/**
+ * Informs DisplayHealth function to collect health data from the thing of 
+ * TID == f_TID prior to displaying. If this is not used (ie bosshlthpriv_bTrackMonster is 
+ * false) DisplayHealth will use any value that is at that moment 
+ * in bosshlthpriv_iCurrentHealth.
+ */
+function void TrackMonster(int f_TID) 
+{ 
+  bosshlthpriv_iTrackTID = f_TID;
+  bosshlthpriv_bTrackMonster = true;
+  bosshlthpriv_iMaxHealth = GetActorProperty(bosshlthpriv_iTrackTID, APROP_HEALTH);
+}
+
+/**
+ * Informs DisplayHealth function to not collect health data from the monster
+ * anymore, see TrackMonster documentation for more info.
+ */
+function void StopTrack(void) 
+{ 
+  bosshlthpriv_bTrackMonster = false;
+}
+
+/**
+ * Should be run only once, to tell the function what was the initial health of 
+ * monster. If TrackMonster() was used this isn't be necessary 
+ * (although you may still override the bosshlthpriv_iMaxHealth value if you really want)
+ */
+function void SetMaxHealth(int f_iMax) 
+{ 
+  bosshlthpriv_iMaxHealth = f_iMax;
+}
+
+/**
+ * If bosshlthpriv_bTrackMonster == false this should be set before each GetPercentage() and 
+ * DisplayHealth()
+ */
+function void SetCurHealth(int f_iCur) 
+{ 
+  bosshlthpriv_iCurrentHealth = f_iCur;
+}
+
+/**
+ * Erases all color levels.
+ */
+function void ClearHealthBarColors(void) 
+{
+  bosshlthpriv_iColorLevels[0] = -1;
+}
+
+/**
+ * Use this to set how many health bars should be displayed.
+ * This will delete all previously set colors so use this before you
+ * call SetHealthBarColor function!
+ */ 
+function void SetHealthBarAmount(int f_iAmount) 
+{
+  if (f_iAmount <= 0) 
+  {
+    return;
+  }
+  
+  bosshlthpriv_iColorLevels[0] = f_iAmount;
+  bosshlthpriv_iColorLevels[1] = -1;
+}
+
+/**
+ * Resets colors to default green/yellow/red status using default
+ * color levels.
+ * Args:
+ *    f_iMaxHealthBars - maximum health bars drawn.
+ */   
+function void ResetHealthColorsToDefault(int f_iMaxHealthBars) 
+{
+  bosshlthpriv_iColorLevels[0] = f_iMaxHealthBars;
+  bosshlthpriv_iColorLevels[1] = ((f_iMaxHealthBars/3)*2);
+  bosshlthpriv_iColorLevels[2] = (f_iMaxHealthBars/3);
+  bosshlthpriv_iColorLevels[3] = -1;
+  bosshlthpriv_iColorNames[0] = 3;
+  bosshlthpriv_iColorNames[1] = 10;
+  bosshlthpriv_iColorNames[2] = 6;
+}
+
+/**
+ * Sets color at certain health level.
+ * Args:
+ *    f_iHowManyBars - below these amount bars will change color
+ *      to color specified as f_iColor parameter.
+ *      IMPORTANT NOTES: If this is bigger than maximum amount of bars
+ *          or lower than 1 the function will return doing nothing.
+ *          If this is equal to already specified health level the existing
+ *          health level will be replaced.
+ *    f_iColor - health bar color, it's the value used by HudMessage() function,
+ *      CR_RED, CR_WHITE, etc.
+ */
+function void SetHealthBarColor(int f_iHowManyBars, int f_iColor) 
+{
+  if (f_iHowManyBars <= 0) 
+  {
+    return;
+  } 
+  else if (f_iHowManyBars > bosshlthpriv_iColorLevels[0]) 
+  {
+    return;
+  }
+  
+  for (int i = 0; i < BOSSHLTHPRIV_COLORARRAYSIZE; ++i) 
+  {
+    if (bosshlthpriv_iColorLevels[i] == f_iHowManyBars) 
+    {
+      bosshlthpriv_iColorNames[i] = f_iColor;
+      break;
+    } 
+    else if (bosshlthpriv_iColorLevels[i] < 0) 
+    {
+      bosshlthpriv_iColorLevels[i] = f_iHowManyBars;
+      bosshlthpriv_iColorNames[i] = f_iColor;
+      if (i < BOSSHLTHPRIV_COLORARRAYSIZE - 1) 
+      {
+        bosshlthpriv_iColorLevels[i+1] = -1;
+      }
+      break;
+    }
+  }
+  
+  priv_sortColorArrays();
+}
+
+/**
+ * Variables used in DisplayHealth() by SetHudSize()
+ */
+function void SetHudSizePar(int f_x, int f_y) 
+{ 
+  bosshlthpriv_iHudX = f_x;
+  bosshlthpriv_iHudY = f_y;
+}
+
+/**
+ * Returns how much health bars monster has left.
+ */
+function int GetPercentage(void) 
+{ 
+  if (bosshlthpriv_bTrackMonster) 
+  {
+    bosshlthpriv_iCurrentHealth = GetActorProperty(bosshlthpriv_iTrackTID, APROP_HEALTH);
+  }
+    
+  if (bosshlthpriv_iColorLevels[0] <= 0 || bosshlthpriv_iMaxHealth <= 0) 
+  {
+    return 0;
+  }
+  
+  int multiplier = bosshlthpriv_iCurrentHealth * bosshlthpriv_iColorLevels[0];
+  int iRet = multiplier / bosshlthpriv_iMaxHealth;
+  if ((multiplier % bosshlthpriv_iMaxHealth) != 0)
+  {
+    ++iRet;
+  }
+    
+  return iRet;
+}
+
+/**
+ * Args:
+ *  f_fX - x position of health bar, have to end with .0
+ *  f_fY - y position of health bar, have to end with .0
+ *  f_fDistance - distance between health bar characters ('=')
+ *  f_fTime - display time
+ *  f_fPosX - fractal value of x position (example: 0.1) 
+ *  f_fPosY - fractal value of y position
+ *  f_cChar - character to use as health bar, must be enclosed in "", for 
+ *            example: DisplayHealth(..., "=");
+ */
+function void DisplayHealth(int f_fX, int f_fY, int f_fDistance, int f_fTime, int f_fPosX, int f_fPosY, int f_cChar) 
+{ 
+  if (bosshlthpriv_iColorLevels[0] <= 0 || bosshlthpriv_iMaxHealth <= 0) 
+  {
+    return;
+  }
+  
+  if (bosshlthpriv_bTrackMonster) 
+  {
+    bosshlthpriv_iCurrentHealth = GetActorProperty(bosshlthpriv_iTrackTID, APROP_HEALTH);
+  }
+
+  int iPercentage = GetPercentage();
+  if (bosshlthpriv_iCurrentHealth > 0) 
+  {
+    int i;
+    int iColor = priv_getColor();
+    
+    SetHudSize(bosshlthpriv_iHudX, bosshlthpriv_iHudY, 1);
+    for (i = 0; i < iPercentage; ++i) 
+    { 
+      hudmessagebold(s:f_cChar; HUDMSG_PLAIN, 0, iColor, f_fX+f_fPosX, f_fY+f_fPosY, f_fTime);
+      f_fX += f_fDistance;
+    }
+  }
+  
+  SetHudSize(0, 0, 0);
+  setfont("smallfont");
+}
+
+/**
+ *  Same as above but tries to split the 'health bar' characters into multiple 
+ *  lines.
+ *  Args:
+ *    same as args for DisplayHealth function, plus:
+ *    f_fLineDistance - Y distance between health lines.
+ *    f_iRightXDistance - X distance from the right edge of screen after which 
+ *                        new line is produced (actual X coordinate is 
+ *                        calculated by doing bosshlthpriv_iHudX - f_iRightXDistance)
+ */
+function void DisplayHealthNl(int f_fX, int f_fY, int f_fDistance, int f_fTime, int f_fPosX, int f_fPosY, int f_cChar, int f_fLineDistance, int f_iRightXDistance) 
+{ 
+  if (bosshlthpriv_iColorLevels[0] <= 0 || bosshlthpriv_iMaxHealth <= 0) 
+  {
+    return;
+  }
+
+  if (bosshlthpriv_bTrackMonster)
+    bosshlthpriv_iCurrentHealth = GetActorProperty(bosshlthpriv_iTrackTID, APROP_HEALTH);
+    
+  int iPercentage = GetPercentage();
+  if (bosshlthpriv_iCurrentHealth > 0) 
+  {
+    int i;
+    int iColor = priv_getColor();
+    
+    SetHudSize(bosshlthpriv_iHudX, bosshlthpriv_iHudY, 1);
+    int iXBase = f_fX;
+    for (i = 0; i < iPercentage; ++i) 
+    {    
+      hudmessagebold(s:f_cChar; HUDMSG_PLAIN, 0, iColor, f_fX+f_fPosX, f_fY+f_fPosY, f_fTime);
+      f_fX += f_fDistance;
+
+      int iXDecimal = f_fX >> 16;
+      if (iXDecimal > bosshlthpriv_iHudX - f_iRightXDistance) 
+      {
+        f_fX = iXBase;
+        f_fY += f_fLineDistance;
+      }
+    }
+  }
+  
+  SetHudSize(0, 0, 0);
+  setfont("smallfont");
+}
+
+/**
+ * Args:
+ *  f_fX - x position of health bar, have to end with .0
+ *  f_fY - y position of health bar, have to end with .0
+ *  f_fDistance - distance between health bar sprites
+ *  f_fTime - display time
+ *  f_fPosX - fractal value of x position (example: 0.1) 
+ *  f_fPosY - fractal value of y position
+ *  f_sSprite - sprite name
+ */
+function void DisplayHealthSprite(int f_fX, int f_fY, int f_fDistance, int f_fTime, int f_fPosX, int f_fPosY, str f_sSprite) 
+{ 
+  if (bosshlthpriv_iColorLevels[0] <= 0 || bosshlthpriv_iMaxHealth <= 0) 
+  {
+    return;
+  }
+  
+  if (bosshlthpriv_bTrackMonster) 
+  {
+    bosshlthpriv_iCurrentHealth = GetActorProperty(bosshlthpriv_iTrackTID, APROP_HEALTH);
+  }
+
+  int iPercentage = GetPercentage();
+  if (bosshlthpriv_iCurrentHealth > 0) 
+  {
+    int i;
+    
+    SetHudSize(bosshlthpriv_iHudX, bosshlthpriv_iHudY, 1);
+    SetFont(f_sSprite);
+    for (i = 0; i < iPercentage; ++i) 
+    { 
+      hudmessagebold(s:"a"; HUDMSG_PLAIN, 0, 0, f_fX+f_fPosX, f_fY+f_fPosY, f_fTime);
+      f_fX += f_fDistance;
+    }
+  }
+  
+  SetHudSize(0, 0, 0);
+  setfont("smallfont");
+}
+
+/**
+ *  Same as above but tries to split the sprites into multiple 
+ *  lines.
+ *  Args:
+ *    same as args for DisplayHealth function, plus:
+ *    f_fLineDistance - Y distance between health lines.
+ *    f_iRightXDistance - X distance from the right edge of screen after which 
+ *                        new line is produced (actual X coordinate is 
+ *                        calculated by doing bosshlthpriv_iHudX - f_iRightXDistance)
+ */
+function void DisplayHealthSpriteNl(int f_fX, int f_fY, int f_fDistance, int f_fTime, int f_fPosX, int f_fPosY, str f_sSprite, int f_fLineDistance, int f_iRightXDistance) 
+{ 
+  if (bosshlthpriv_iColorLevels[0] <= 0 || bosshlthpriv_iMaxHealth <= 0) 
+  {
+    return;
+  }
+
+  if (bosshlthpriv_bTrackMonster)
+    bosshlthpriv_iCurrentHealth = GetActorProperty(bosshlthpriv_iTrackTID, APROP_HEALTH);
+    
+  int iPercentage = GetPercentage();
+  if (bosshlthpriv_iCurrentHealth > 0) 
+  {
+    int i;
+    SetHudSize(bosshlthpriv_iHudX, bosshlthpriv_iHudY, 1);
+    SetFont(f_sSprite);
+    int iXBase = f_fX;
+    for (i = 0; i < iPercentage; ++i) 
+    {    
+      hudmessagebold(s:"a"; HUDMSG_PLAIN, 0, 0, f_fX+f_fPosX, f_fY+f_fPosY, f_fTime);
+      f_fX += f_fDistance;
+      
+      int iXDecimal = f_fX >> 16;
+      if (iXDecimal > bosshlthpriv_iHudX - f_iRightXDistance) 
+      {
+        f_fX = iXBase;
+        f_fY += f_fLineDistance;
+      }
+    }
+  }
+  
+  SetHudSize(0, 0, 0);
+  setfont("smallfont");
+}
+
+/**
+ *  Displays return of GetPercentage(). Doesn't use SetHudSize()
+ *
+ *  Args:
+ *    f_fX          - x coordinate, see documenation for HudMessage()
+ *    f_fY          - y coordinate, as above
+ *    f_iId         - id of displayed text
+ *    f_fTime       - display time
+ *    f_prefix      - prefix prepended to the displayed number (ex. "Health: ")
+ *    f_displayFont - in which font the text should be displayed
+ *    f_returnFont  - to which font return to after displaying text
+ */
+function void DisplayHealthNumeric(int f_fX, int f_fY, int f_iId, int f_fTime, str f_prefix, str f_displayFont, str f_returnFont) 
+{ 
+  if (bosshlthpriv_iColorLevels[0] <= 0 || bosshlthpriv_iMaxHealth <= 0) 
+  {
+    return;
+  }
+
+  if (bosshlthpriv_bTrackMonster)
+    bosshlthpriv_iCurrentHealth = GetActorProperty(bosshlthpriv_iTrackTID, APROP_HEALTH);
+    
+  int iPercentage = GetPercentage();
+  if (bosshlthpriv_iCurrentHealth > 0) 
+  {
+    int i;
+    int iColor = priv_getColor();
+    
+    setfont(f_displayFont);
+    hudmessagebold(s:f_prefix, d:iPercentage, s:"%"; HUDMSG_PLAIN, f_iId, iColor, f_fX, f_fY, f_fTime);
+    setfont(f_returnFont);
+  }
+}
+
+function int GetHudXParam(void) 
+{
+  return bosshlthpriv_iHudX;
+}
+
+function int GetHudYParam(void) 
+{
+  return bosshlthpriv_iHudY;
+}
+
+function int priv_getColor(void) 
+{
+	int iPercentage = GetPercentage();
+  for (int i = 1; i < BOSSHLTHPRIV_COLORARRAYSIZE; ++i) 
+  {
+		if (iPercentage > bosshlthpriv_iColorLevels[i]) 
+		{
+			return bosshlthpriv_iColorNames[i-1];
+			break;
+		}
+		
+		if (bosshlthpriv_iColorLevels[i] < 0)
+			break;
+  }
+	return bosshlthpriv_iColorNames[0];
+}
+
+/**
+ * Sorts both arrays using select sort
+ */
+function void priv_sortColorArrays(void) 
+{
+  for (int i = 0; i < BOSSHLTHPRIV_COLORARRAYSIZE; ++i) 
+  {
+    if (bosshlthpriv_iColorLevels[i] < 0) 
+    {
+      break;
+    }
+    
+    int iCurrentNumber = bosshlthpriv_iColorLevels[i];
+    int iIndexAt = 0;
+    
+    for (int j = i+1; j < BOSSHLTHPRIV_COLORARRAYSIZE; ++j) 
+    {
+      if (bosshlthpriv_iColorLevels[j] > iCurrentNumber) 
+      {
+        iCurrentNumber = bosshlthpriv_iColorLevels[j];
+        iIndexAt = j;
+      } 
+      else if (bosshlthpriv_iColorLevels[j] < 0) 
+      {
+        break;
+      }
+    }
+    
+    if (iIndexAt != 0) 
+    {
+      // Party algorithm, the iCurrentNumber is the ashtray.
+      bosshlthpriv_iColorLevels[iIndexAt] = bosshlthpriv_iColorLevels[i];
+      bosshlthpriv_iColorLevels[i] = iCurrentNumber;
+      
+      iCurrentNumber = bosshlthpriv_iColorNames[iIndexAt];
+      bosshlthpriv_iColorNames[iIndexAt] = bosshlthpriv_iColorNames[i];
+      bosshlthpriv_iColorNames[i] = iCurrentNumber;
+    }
+  }
+}
+
+// this is for debug purpose only
+function void priv_printColorArrays(void) 
+{
+  for (int i = 0; i < BOSSHLTHPRIV_COLORARRAYSIZE; ++i) 
+  {
+    if (bosshlthpriv_iColorLevels[i] < 0)
+      break;
+      
+    printbold(d:bosshlthpriv_iColorLevels[i], s:" ", d:bosshlthpriv_iColorNames[i]);
+  }
+}

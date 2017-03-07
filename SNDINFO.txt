@@ -346,3 +346,6 @@ drone/pain2 	DRONPAN2
 drone/pain3 	DRONPAN3
 
 drone/die		DRONDIE
+
+//Ambient
+game/scream		DSPLDETH

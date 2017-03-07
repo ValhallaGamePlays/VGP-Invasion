@@ -32,15 +32,15 @@ ExitPic "INTERPIC"
 
 map VGPINV04 "H Doom"
 
-next "VGPINV04"
-secretnext "VGPINV04"
+next "VGPINV05"
+secretnext "VGPINV05"
 sky1 "LAVASKY1"
 music "V_MUS04"
 ExitPic "INTERPIC"
 
 map VGPINV05 "Bravo Arena"
 
-next "VGPINV05"
+next "VGPINV07"
 secretnext "VGPINV05"
 sky1 "SINSKY"
 music "V_MUS05"
@@ -54,10 +54,10 @@ sky1 "SINSKY"
 music "V_MUS06"
 ExitPic "INTERPIC"
 
-map VGPINV07 "Big Trouble in UAC"
+map VGPINV07 "Unfit for Demon Consumption"
 
 next "VGPINV07"
 secretnext "VGPINV07"
-sky1 
-music 
+sky1  "SKY1"
+music "V_MUS07"
 ExitPic "INTERPIC"

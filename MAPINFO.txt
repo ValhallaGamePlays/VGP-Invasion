@@ -40,15 +40,15 @@ ExitPic "INTERPIC"
 
 map VGPINV05 "Bravo Arena"
 
-next "VGPINV07"
+next "VGPINV06"
 secretnext "VGPINV05"
 sky1 "SINSKY"
 music "V_MUS05"
 ExitPic "INTERPIC"
 
-map VGPINV06 "Demon Castle"
+map VGPINV06 "Raw Material"
 
-next "VGPINV06"
+next "VGPINV07"
 secretnext "VGPINV06"
 sky1 "SINSKY"
 music "V_MUS06"

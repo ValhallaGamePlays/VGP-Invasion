@@ -61,3 +61,10 @@ secretnext "VGPINV07"
 sky1  "SKY1"
 music "V_MUS07"
 ExitPic "INTERPIC"
+
+map VGPINV10 "Frankenstein's Castle OR Twist in time"
+
+next "VGPINV10"
+secretnext "VGPINV10
+music "V_MUS10"
+ExitPic "INTERPIC"

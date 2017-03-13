@@ -1,0 +1,17 @@
+actor GoldenBoner : Revenant 3124
+{
+    Health 4000
+    Radius 15
+    Height 42
+    Speed 20
+    Scale 1.666
+    Monster
+    +BOSS
+    Obituary "%o was boned."
+    Translation "0:255=%[0.1, 0.05, 0.025]:[1.25, 0.9, 0.11]"
+}
+
+actor GoldenBonerSpot : CustomMonsterInvasionSpot 3125
+{
+DropItem GoldenBoner
+}

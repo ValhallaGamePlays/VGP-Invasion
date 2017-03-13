@@ -50,7 +50,7 @@ map VGPINV06 "Raw Material"
 
 next "VGPINV07"
 secretnext "VGPINV06"
-sky1 "SINSKY"
+sky1 "ANSKY_11"
 music "V_MUS06"
 ExitPic "INTERPIC"
 

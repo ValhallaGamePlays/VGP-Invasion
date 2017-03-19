@@ -29,3 +29,4 @@
 #include "actors/Monsters/BloodDemonClone.txt"
 #include "actors/Monsters/Drone.txt"
 #include "actors/Monsters/GoldenBoner.txt"
+#inculed "actors/Monsters/CyberMastermind.txt"

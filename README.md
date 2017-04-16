@@ -12,7 +12,7 @@ Decorate and Scripting Help- Mr. Badguy, Mr. Enchanter, and Loismustdie555
 
 Contact Miles with any questions or concerns: akthunderfolk@gmail.com
 
-# Credits
+# Info
 
     ===========================================================================
     Advanced engine needed  : Zandronum 3.0, GZDoom

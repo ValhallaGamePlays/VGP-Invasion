@@ -1,0 +1,422 @@
+//Animation Definitions//
+
+//texture STYX1
+//pic STYX1 tics 10
+//pic STYX2 tics 15
+//pic STYX3 tics 35
+//pic STYX2 tics 15
+
+/* Animation definition for Shadowcaster textures when used in Doom, Heretic, Hexen or Strife. */
+
+flat	SCBLOOD1	range SCBLOOD3	tics 8
+flat	SCBLOOD4	range SCBLOOD6	tics 7
+flat	SCGATEA1	range SCGATEA5	tics 6
+flat	SCGATED1	range SCGATED3	tics 5
+flat	SCLAVAA1	range SCLAVAA3	tics 8
+flat	SCLAVAB1	range SCLAVAB3	tics 8
+flat	SCLAVAC1	range SCLAVAC3	tics 4
+flat	SCLAVAD1	range SCLAVAD3	tics 8
+flat	SCSLIME1	range SCSLIME3	tics 8
+flat	SCSLUDG1	range SCSLUDG3	tics 8
+flat	SCSLUDG4	range SCSLUDG6	tics 8
+flat	SCSLUDG7	range SCSLUDG9	tics 8
+flat	SCWATER1	range SCWATER3	tics 8 
+// SCWATER4 to SCWATERS is to be used in a script that empties water in an area.
+
+texture SCBLOODA	range SCBLOODC	tics 8
+texture SCBLOODD	range SCBLOODF	tics 8
+texture SCBLUET1	range SCBLUET3	tics 6
+texture SCFACES1	range SCFACES3	tics 9
+texture SCGATEC1	range SCGATEC4	tics 5
+texture SCGREEN1	range SCGREEN3	tics 8
+texture SCHEADB1	range SCHEADB5	tics 6
+texture SCHEADG1	range SCHEADG3	tics 6
+texture SCROKWF1	range SCROKWF3	tics 4
+texture SCSTWAT1	range SCSTWAT3	tics 8
+texture SCVEINS1	range SCVEINS3	tics 8
+texture SCWEIRD1	range SCWEIRD3	tics 8
+
+switch	SCSWHED0  on  pic SCSWHED1	tics 0
+switch	SCSWHRG0  on  pic SCSWHRG1	tics 0
+switch	SCSWKAP0  on  pic SCSWKAP1	tics 0
+switch	SCSWGRN0  on  pic SCSWGRN1	tics 0
+switch	SCSWPRS0  on  pic SCSWPRS1	tics 0
+switch	SCSWSQR0  on  pic SCSWSQR1	tics 0
+switch	SCSWTRG0  on  pic SCSWTRG1	tics 0
+switch	SCSWTRK0  on  pic SCSWTRK1	tics 0
+
+//ANOXTEX
+texture ANCP1_1 range ANCP1_3 rand 5 9
+
+texture ANCP2_1 range ANCP2_3 rand 4 10
+
+texture ANCP3_1 range ANCP3_2 rand 17 25
+
+texture ANCP4_1 range ANCP4_2 rand 17 25
+
+texture ANCP5_1 range ANCP5_3 rand 8 14
+
+texture ANCP6_1 range ANCP6_3 rand 8 14
+
+texture CNPN1_1 range CNPN1_4 rand 9 15
+
+texture CNPN2_1 range CNPN2_4 rand 9 15
+
+texture SWIRL1 range SWIRL3 tics 3
+
+texture LTR1_1 range LTR1_4 tics 4
+
+texture LTR2_1 range LTR2_4 tics 4
+
+texture LTR3_1 range LTR3_8 tics 3
+
+texture LITES_1 range LITES_3 tics 8 oscillate
+
+texture LSEQ_1 range LSEQ_7 tics 8 oscillate
+
+texture LEFT1 range LEFT2 tics 20
+
+texture RIGHT1 range RIGHT2 tics 20
+
+texture SGN1_1 range SGN1_4 tics 12
+
+texture SGN2_1 range SGN2_5 tics 6
+
+texture SGN3_1 range SGN3_8 tics 5 oscillate
+
+texture SGN4_1 range SGN4_4 tics 10
+
+texture SGN6_01 range SGN6_10 tics 6
+
+texture SGN7_1 range SGN7_8 tics 5 oscillate
+
+texture SGN8_1 range SGN8_2 tics 20
+
+texture NOXNET_1 range NOXNET_2 tics 25
+
+texture DISP_1 range DISP_2 tics 20
+
+texture ANEXIT_1 range ANEXIT_2 tics 20
+
+texture WHEEL1 range WHEEL3 tics 3
+
+warp texture AWARP_01
+warp texture AWARP_02
+warp texture AWARP_03
+warp texture AWARP_04
+warp texture AWARP_05
+warp texture AWARP_06
+warp texture AWARP_07
+warp texture AWARP_08
+warp texture AWARP_09
+warp texture AWARP_10
+warp texture AWARP_11
+
+/*
+Man, did this take awhile. I never thought I'd get to do this pack, but thanks to Gez
+adding Anachronox support to SLADE3, it's a reality!
+
+I did plenty of work to clean up textures, patch multipart ones together, and delete
+model skins, but I think there may be a few errors here. However, I looked over them
+multiple times, so, I hope that isn't the case.
+
+I'm also working on the skyboxes from this game. They're pretty neat, so be sure to
+ask me about them on Realm667.
+
+Anyway, have fun with these! --Ceeb
+*/
+
+//BMC Animated Textures
+texture TV001
+pic TV001 tics 2
+pic TV002 tics 2
+PIC TV003 tics 2
+PIC TV002 tics 2
+
+
+texture FSLADRP1
+pic FSLADRP1 tics 3
+pic FSLADRP2 tics 3
+pic FSLADRP3 tics 3
+pic FSLADRP2 tics 3
+pic FSLADRP1 tics 3
+
+
+
+texture TBLODGR1
+pic TBLODGR1 tics 3
+pic TBLODGR2 tics 3
+pic TBLODGR3 tics 3
+pic TBLODGR4 tics 3
+
+
+texture NEON1
+pic NEON1 tics 2
+pic NEON2 tics 2
+pic NEON3 tics 2
+pic NEON4 tics 2
+pic NEON5 tics 2
+pic NEON4 tics 2
+pic NEON3 tics 2
+pic NEON2 tics 2
+pic NEON1 tics 2
+
+
+
+texture FIRESK00
+pic 1 tics 2
+pic 2 tics 2
+pic 3 tics 2
+pic 4 tics 2
+pic 5 tics 2
+pic 6 tics 2
+pic 7 tics 2
+pic 8 tics 2
+pic 9 tics 2
+pic 10 tics 2
+pic 11 tics 2
+pic 12 tics 2
+pic 13 tics 2
+pic 14 tics 2
+pic 15 tics 2
+pic 16 tics 2
+pic 17 tics 2
+pic 18 tics 2
+pic 19 tics 2
+pic 20 tics 2
+pic 21 tics 2
+pic 22 tics 2
+pic 23 tics 2
+pic 24 tics 2
+pic 25 tics 2
+pic 26 tics 2
+pic 27 tics 2
+pic 28 tics 2
+pic 29 tics 2
+pic 30 tics 2
+pic 31 tics 2
+pic 32 tics 2
+pic 33 tics 2
+pic 34 tics 2
+pic 35 tics 2
+pic 36 tics 2
+pic 37 tics 2
+pic 38 tics 2
+pic 39 tics 2
+pic 40 tics 2
+pic 41 tics 2
+pic 42 tics 2
+pic 43 tics 2
+pic 44 tics 2
+pic 45 tics 2
+pic 46 tics 2
+pic 47 tics 2
+pic 48 tics 2
+pic 49 tics 2
+pic 50 tics 2
+pic 51 tics 2
+pic 52 tics 2
+pic 53 tics 2
+pic 54 tics 2
+pic 55 tics 2
+pic 56 tics 2
+pic 57 tics 2
+pic 58 tics 2
+pic 59 tics 2
+pic 60 tics 2
+pic 61 tics 2
+pic 62 tics 2
+pic 63 tics 2
+pic 64 tics 2
+pic 65 tics 2
+pic 66 tics 2
+pic 67 tics 2
+pic 68 tics 2
+pic 69 tics 2
+pic 70 tics 2
+pic 71 tics 2
+pic 72 tics 2
+pic 73 tics 2
+pic 74 tics 2
+pic 75 tics 2
+pic 76 tics 2
+pic 77 tics 2
+pic 78 tics 2
+pic 79 tics 2
+pic 80 tics 2
+pic 81 tics 2
+pic 82 tics 2
+pic 83 tics 2
+pic 84 tics 2
+pic 85 tics 2
+pic 86 tics 2
+pic 87 tics 2
+pic 88 tics 2
+pic 89 tics 2
+pic 90 tics 2
+pic 91 tics 2
+pic 92 tics 2
+pic 93 tics 2
+pic 94 tics 2
+pic 95 tics 2
+pic 96 tics 2
+pic 97 tics 2
+pic 98 tics 2
+pic 99 tics 2
+pic 100 tics 2	
+
+//BMC
+texture TV001
+pic TV001 tics 2
+pic TV002 tics 2
+PIC TV003 tics 2
+PIC TV002 tics 2
+
+
+texture FSLADRP1
+pic FSLADRP1 tics 3
+pic FSLADRP2 tics 3
+pic FSLADRP3 tics 3
+pic FSLADRP2 tics 3
+pic FSLADRP1 tics 3
+
+
+
+texture TBLODGR1
+pic TBLODGR1 tics 3
+pic TBLODGR2 tics 3
+pic TBLODGR3 tics 3
+pic TBLODGR4 tics 3
+
+texture WFALL1
+pic WFALL1 tics 3
+pic WFALL2 tics 3
+pic WFALL3 tics 3
+pic WFALL4 tics 3
+
+texture VHS1
+pic VHS1 tics 3
+pic VHS2 tics 3
+pic VHS3 tics 3
+pic VHS4 tics 3
+pic VHS5 tics 3
+pic VHS4 tics 3
+pic VHS3 tics 3
+pic VHS2 tics 3
+pic VHS1 tics 3
+
+
+texture NEON1
+pic NEON1 tics 4
+pic NEON2 tics 4
+pic NEON3 tics 4
+pic NEON4 tics 4
+pic NEON5 tics 4
+pic NEON4 tics 4
+pic NEON3 tics 4
+pic NEON2 tics 4
+pic NEON1 tics 4
+
+
+
+texture FIRESK00
+pic 1 tics 2
+pic 2 tics 2
+pic 3 tics 2
+pic 4 tics 2
+pic 5 tics 2
+pic 6 tics 2
+pic 7 tics 2
+pic 8 tics 2
+pic 9 tics 2
+pic 10 tics 2
+pic 11 tics 2
+pic 12 tics 2
+pic 13 tics 2
+pic 14 tics 2
+pic 15 tics 2
+pic 16 tics 2
+pic 17 tics 2
+pic 18 tics 2
+pic 19 tics 2
+pic 20 tics 2
+pic 21 tics 2
+pic 22 tics 2
+pic 23 tics 2
+pic 24 tics 2
+pic 25 tics 2
+pic 26 tics 2
+pic 27 tics 2
+pic 28 tics 2
+pic 29 tics 2
+pic 30 tics 2
+pic 31 tics 2
+pic 32 tics 2
+pic 33 tics 2
+pic 34 tics 2
+pic 35 tics 2
+pic 36 tics 2
+pic 37 tics 2
+pic 38 tics 2
+pic 39 tics 2
+pic 40 tics 2
+pic 41 tics 2
+pic 42 tics 2
+pic 43 tics 2
+pic 44 tics 2
+pic 45 tics 2
+pic 46 tics 2
+pic 47 tics 2
+pic 48 tics 2
+pic 49 tics 2
+pic 50 tics 2
+pic 51 tics 2
+pic 52 tics 2
+pic 53 tics 2
+pic 54 tics 2
+pic 55 tics 2
+pic 56 tics 2
+pic 57 tics 2
+pic 58 tics 2
+pic 59 tics 2
+pic 60 tics 2
+pic 61 tics 2
+pic 62 tics 2
+pic 63 tics 2
+pic 64 tics 2
+pic 65 tics 2
+pic 66 tics 2
+pic 67 tics 2
+pic 68 tics 2
+pic 69 tics 2
+pic 70 tics 2
+pic 71 tics 2
+pic 72 tics 2
+pic 73 tics 2
+pic 74 tics 2
+pic 75 tics 2
+pic 76 tics 2
+pic 77 tics 2
+pic 78 tics 2
+pic 79 tics 2
+pic 80 tics 2
+pic 81 tics 2
+pic 82 tics 2
+pic 83 tics 2
+pic 84 tics 2
+pic 85 tics 2
+pic 86 tics 2
+pic 87 tics 2
+pic 88 tics 2
+pic 89 tics 2
+pic 90 tics 2
+pic 91 tics 2
+pic 92 tics 2
+pic 93 tics 2
+pic 94 tics 2
+pic 95 tics 2
+pic 96 tics 2
+pic 97 tics 2
+pic 98 tics 2
+pic 99 tics 2
+pic 100 tics 2	

@@ -6,7 +6,7 @@
 
 ACTOR Terminator 30666
 { 
-Health 7000 
+Health 2500 
 Radius 24 
 Height 64 
 Mass 1500 

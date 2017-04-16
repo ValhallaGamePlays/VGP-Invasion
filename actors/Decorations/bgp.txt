@@ -1,0 +1,240 @@
+//Custom objects
+ACTOR Spectator 1000
+{
++SOLID
+States
+ {
+	Spawn:
+	 PEAS A 1
+	Loop
+ }
+}
+
+ACTOR Spectator2 1001
+{
++SOLID
+States
+ {
+	Spawn:
+	 PEAS B 1
+	Loop
+ }
+}
+
+//Custom invasion spots
+ACTOR DoomImpSpot : CustomMonsterInvasionSpot 12353
+{
+//$Angled
+//$Arg0 "Start Spawn Number"
+//$Arg1 "Spawn Delay"
+//$Arg2 "Round Spawn Delay"
+//$Arg3 "First Appear Wave"
+//$Arg4 "Max Spawn"
+DropItem DoomImp
+}
+
+ACTOR CacodemomSpot : CustomMonsterInvasionSpot 12354
+{
+//$Angled
+//$Arg0 "Start Spawn Number"
+//$Arg1 "Spawn Delay"
+//$Arg2 "Round Spawn Delay"
+//$Arg3 "First Appear Wave"
+//$Arg4 "Max Spawn"
+DropItem Cacodemon
+}
+
+ACTOR Arachnotronspot : CustomMonsterInvasionSpot 12355
+{
+//$Angled
+//$Arg0 "Start Spawn Number"
+//$Arg1 "Spawn Delay"
+//$Arg2 "Round Spawn Delay"
+//$Arg3 "First Appear Wave"
+//$Arg4 "Max Spawn"
+DropItem Arachnotron
+}
+
+ACTOR ArchvileSpot : CustomMonsterInvasionSpot 12356
+{
+//$Angled
+//$Arg0 "Start Spawn Number"
+//$Arg1 "Spawn Delay"
+//$Arg2 "Round Spawn Delay"
+//$Arg3 "First Appear Wave"
+//$Arg4 "Max Spawn"
+DropItem Archvile
+}
+
+ACTOR BaronOfHellSpot : CustomMonsterInvasionSpot 12357
+{
+//$Angled
+//$Arg0 "Start Spawn Number"
+//$Arg1 "Spawn Delay"
+//$Arg2 "Round Spawn Delay"
+//$Arg3 "First Appear Wave"
+//$Arg4 "Max Spawn"
+DropItem BaronOfHell
+}
+
+ACTOR ChaingunGuySpot : CustomMonsterInvasionSpot 12358
+{
+//$Angled
+//$Arg0 "Start Spawn Number"
+//$Arg1 "Spawn Delay"
+//$Arg2 "Round Spawn Delay"
+//$Arg3 "First Appear Wave"
+//$Arg4 "Max Spawn"
+DropItem ChaingunGuy
+}
+
+ACTOR CyberdemonSpot : CustomMonsterInvasionSpot 12359
+{
+//$Angled
+//$Arg0 "Start Spawn Number"
+//$Arg1 "Spawn Delay"
+//$Arg2 "Round Spawn Delay"
+//$Arg3 "First Appear Wave"
+//$Arg4 "Max Spawn"
+DropItem Cyberdemon
+}
+
+ACTOR FatsoSpot : CustomMonsterInvasionSpot 12360
+{
+//$Angled
+//$Arg0 "Start Spawn Number"
+//$Arg1 "Spawn Delay"
+//$Arg2 "Round Spawn Delay"
+//$Arg3 "First Appear Wave"
+//$Arg4 "Max Spawn"
+DropItem Fatso
+}
+
+ACTOR HellKnightSpot : CustomMonsterInvasionSpot 12361
+{
+//$Angled
+//$Arg0 "Start Spawn Number"
+//$Arg1 "Spawn Delay"
+//$Arg2 "Round Spawn Delay"
+//$Arg3 "First Appear Wave"
+//$Arg4 "Max Spawn"
+DropItem HellKnight
+}
+
+ACTOR LostSoulSpot : CustomMonsterInvasionSpot 12362
+{
+//$Angled
+//$Arg0 "Start Spawn Number"
+//$Arg1 "Spawn Delay"
+//$Arg2 "Round Spawn Delay"
+//$Arg3 "First Appear Wave"
+//$Arg4 "Max Spawn"
+DropItem LostSoul
+}
+
+ACTOR PainElementalSpot : CustomMonsterInvasionSpot 12363
+{
+//$Angled
+//$Arg0 "Start Spawn Number"
+//$Arg1 "Spawn Delay"
+//$Arg2 "Round Spawn Delay"
+//$Arg3 "First Appear Wave"
+//$Arg4 "Max Spawn"
+DropItem PainElemental
+}
+
+ACTOR ShotgunGuySpot : CustomMonsterInvasionSpot 12364
+{
+//$Angled
+//$Arg0 "Start Spawn Number"
+//$Arg1 "Spawn Delay"
+//$Arg2 "Round Spawn Delay"
+//$Arg3 "First Appear Wave"
+//$Arg4 "Max Spawn"
+DropItem ShotgunGuy
+}
+
+ACTOR SpectreSpot : CustomMonsterInvasionSpot 12365
+{
+//$Angled
+//$Arg0 "Start Spawn Number"
+//$Arg1 "Spawn Delay"
+//$Arg2 "Round Spawn Delay"
+//$Arg3 "First Appear Wave"
+//$Arg4 "Max Spawn"
+DropItem Spectre
+}
+
+ACTOR SpiderMastermindSpot : CustomMonsterInvasionSpot 12366
+{
+//$Angled
+//$Arg0 "Start Spawn Number"
+//$Arg1 "Spawn Delay"
+//$Arg2 "Round Spawn Delay"
+//$Arg3 "First Appear Wave"
+//$Arg4 "Max Spawn"
+DropItem SpiderMastermind
+}
+
+ACTOR WolfensteinSSSpot : CustomMonsterInvasionSpot 12367
+{
+//$Angled
+//$Arg0 "Start Spawn Number"
+//$Arg1 "Spawn Delay"
+//$Arg2 "Round Spawn Delay"
+//$Arg3 "First Appear Wave"
+//$Arg4 "Max Spawn"
+DropItem WolfensteinSS
+}
+
+ACTOR ZombieManSpot : CustomMonsterInvasionSpot 12368
+{
+//$Angled
+//$Arg0 "Start Spawn Number"
+//$Arg1 "Spawn Delay"
+//$Arg2 "Round Spawn Delay"
+//$Arg3 "First Appear Wave"
+//$Arg4 "Max Spawn"
+DropItem ZombieMan
+}
+
+//Custom item spawners
+ACTOR AmmoSpawner : CustomPickupInvasionSpot 12369
+{
+//$Angled
+//$Arg0 "Start Spawn Number"
+//$Arg1 "Spawn Delay"
+//$Arg2 "Round Spawn Delay"
+//$Arg3 "First Appear Wave"
+//$Arg4 "Max Spawn"
+DropItem Clip
+DropItem Cell
+DropItem RocketAmmo
+DropItem Shell
+}
+
+ACTOR MedikitSpawner : CustomPickupInvasionSpot 12370
+{
+//$Angled
+//$Arg0 "Start Spawn Number"
+//$Arg1 "Spawn Delay"
+//$Arg2 "Round Spawn Delay"
+//$Arg3 "First Appear Wave"
+//$Arg4 "Max Spawn"
+DropItem Medikit
+DropItem Stimpack
+}
+
+ACTOR ArmorSpawner : CustomPickupInvasionSpot 12371
+{
+//$Angled
+//$Arg0 "Start Spawn Number"
+//$Arg1 "Spawn Delay"
+//$Arg2 "Round Spawn Delay"
+//$Arg3 "First Appear Wave"
+//$Arg4 "Max Spawn"
+DropItem ArmorBonus
+DropItem ArmorBonus
+DropItem ArmorBonus
+DropItem GreenArmor
+}

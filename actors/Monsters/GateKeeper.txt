@@ -1,0 +1,1210 @@
+ACTOR GateKeeper 17000
+{
+Health 7500
+Mass 8000
+Radius 56
+Height 120
+Speed 20
+PainChance 24
+bloodcolor "A7 3F 00"
+MONSTER 
++FLOORCLIP
++MISSILEMORE
++MISSILEEVENMORE
++NORADIUSDMG
++BOSS
++QUICKTORETALIATE
++DONTMORPH
++FULLVOLACTIVE
++DONTHURTSPECIES
+SeeSound "gate/sight"
+PainSound "gate/pain"
+DeathSound "gate/death"
+ActiveSound "gate/active"
+Obituary "%o was killed by the mighty Gate Keeper."
+Decal "GateKeeperBulletchip"
+States
+{
+Spawn:
+	GATE C 5 A_Look
+        NULL A 0 A_Spawnitem("UPC")
+        GATE D 5 A_Look
+        NULL A 0 A_Spawnitem("UPD")
+	Loop
+See:
+	NULL A 0 A_JumpIfInventory ("OrbitOn",1,"Walk")
+	NULL A 0 A_GiveInventory ("OrbitOn",1)
+	NULL A 0 A_CustomMissile("GateOrbit1", 32, 128, 0, -16)
+	NULL A 0 A_CustomMissile("GateOrbit2", 48, -128, -16, 0)
+Walk:
+	GATE A 6 A_Metal
+        NULL A 0 A_Spawnitem("UPA")
+	GATE A 6 A_Chase
+        NULL A 0 A_Spawnitem("UPA")
+	GATE B 6 A_Chase
+        NULL A 0 A_Spawnitem("UPB")
+	GATE B 6 A_Chase
+        NULL A 0 A_Spawnitem("UPB")
+	GATE C 6 A_Metal
+        NULL A 0 A_Spawnitem("UPC")
+	GATE C 6 A_Chase
+        NULL A 0 A_Spawnitem("UPC")
+	GATE D 6 A_Chase
+        NULL A 0 A_Spawnitem("UPD")
+	GATE D 6 A_Chase
+        NULL A 0 A_Spawnitem("UPD")
+	Loop
+Missile:
+	NULL A 0 A_Jump (128,"Missile1","Missile1","Missile2","Missile2","Missile3")
+	NULL A 0 A_Jump (128,"Missile4","Missile4","Missile5","Missile5","Missile6")
+	Loop
+Missile1:
+	NULL A 0 A_JumpIfCloser(320,"Flamefire")
+	GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+        GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+        GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+        GATE E 3 A_FaceTarget
+        NULL A 0 A_Spawnitem("UPE")
+        GATE F 3 BRIGHT A_CustomMissile("GateKeeperBlast1", 48, 32,  0, 0)  
+        NULL A 0 A_Spawnitem("UPF")
+        GATE E 2 A_FaceTarget
+        GATE E 1 A_CPosRefire
+        NULL A 0 A_Spawnitem("UPE")
+	Goto Missile1+7
+Missile2:
+	NULL A 0 A_JumpIfCloser(320,"Flamefire")
+	NULL A 0 A_playsound("gate/attack")
+        GATE G 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPG")
+        GATE G 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPG")
+        GATE G 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPG")
+	GATE H 4 BRIGHT A_CustomMissile("GateKeeperBlast2", 48, 0, 0)
+        NULL A 0 A_Spawnitem("UPH")
+        GATE H 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPH")
+        GATE H 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPH")
+        GATE H 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPH")
+        GATE H 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPH")
+        GATE H 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPH")
+	Goto Walk
+Missile3:
+	NULL A 0 A_JumpIfCloser(320,"Flamefire")
+	GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+        GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+        GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+	GATE E 6 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPE")
+	GATE F 6 BRIGHT A_CustomMissile("Laser", 48, 0, 0)
+        NULL A 0 A_Spawnitem("UPF")
+	Goto Walk
+Missile4:
+	NULL A 0 A_JumpIfCloser(320,"Flamefire")
+	GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+        GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+        GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+	GATE E 6 BRIGHT A_CustomMissile("PlasmaGernade", 48, 32,  4, -8)
+        NULL A 0 A_Spawnitem("UPE")
+	NULL A 0 a_playsound("weapons/rocklf")
+	GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+        GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+        GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+	GATE E 6 BRIGHT A_CustomMissile("PlasmaGernade", 48, 32,  -4, 8)
+        NULL A 0 A_Spawnitem("UPE")
+	NULL A 0 a_playsound("weapons/rocklf")
+	GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+        GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+        GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+	GATE E 6 BRIGHT A_CustomMissile("PlasmaGernade", 48, 32,  -4, 16)
+        NULL A 0 A_Spawnitem("UPE")
+	NULL A 0 a_playsound("weapons/rocklf")
+	GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+        GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+        GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+	GATE E 6 BRIGHT A_CustomMissile("PlasmaGernade", 48, 32,  4, -16)
+        NULL A 0 A_Spawnitem("UPE")
+	NULL A 0 a_playsound("weapons/rocklf")
+	GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+        GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+        GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+	GATE E 6 BRIGHT A_CustomMissile("PlasmaGernade", 48, 32,  4, -8)
+        NULL A 0 A_Spawnitem("UPE")
+	NULL A 0 a_playsound("weapons/rocklf")
+	GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+        GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+        GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+	GATE E 6 BRIGHT A_CustomMissile("PlasmaGernade", 48, 32,  -4, 8)
+        NULL A 0 A_Spawnitem("UPE")
+	NULL A 0 a_playsound("weapons/rocklf")
+	GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+        GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+        GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+	GATE E 6 BRIGHT A_CustomMissile("PlasmaGernade", 48, 32,  -4, 16)
+        NULL A 0 A_Spawnitem("UPE")
+	NULL A 0 a_playsound("weapons/rocklf")
+	GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+        GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+        GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+	GATE E 6 BRIGHT A_CustomMissile("PlasmaGernade", 48, 32,  4, -16)
+        NULL A 0 A_Spawnitem("UPE")
+	NULL A 0 a_playsound("weapons/rocklf")
+	GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+        GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+        GATE P 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+	Goto Walk
+Missile5:
+	GATE P 6 A_FaceTarget
+        NULL A 0 A_Spawnitem("UPP")
+	GATE F 3 BRIGHT A_CustomBulletAttack(25, 4, 4, 1, "GateBulletPuff")
+	NULL A 0 BRIGHT A_CustomBulletAttack(25, 4, 4, 1, "GateBulletPuff")
+        NULL A 0 A_Spawnitem("UPF")
+	NULL A 0 A_playsound("gate/PLASMASHOT")
+	GATE E 3 A_FaceTarget
+        NULL A 0 A_Spawnitem("UPE")
+	GATE F 3 BRIGHT A_CustomBulletAttack(25, 4, 4, 1, "GateBulletPuff")
+	NULL A 0 BRIGHT A_CustomBulletAttack(25, 4, 4, 1, "GateBulletPuff")
+        NULL A 0 A_Spawnitem("UPF")
+	NULL A 0 A_playsound("gate/PLASMASHOT")
+	GATE E 3 A_FaceTarget
+	GATE E 1 A_CPosRefire
+        NULL A 0 A_Spawnitem("UPE")
+	Goto Missile5+2
+Missile6:
+	NULL A 0 A_playsound("gate/yell")
+	GATE G 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPG")
+        GATE G 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPG")
+        GATE G 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPG")
+	GATE H 6 BRIGHT A_PainAttack("DarkLostSoul")
+        NULL A 0 A_Spawnitem("UPH")
+	GATE H 6 BRIGHT A_PainAttack("DarkLostSoul")
+        NULL A 0 A_Spawnitem("UPH")
+	GATE H 6 BRIGHT A_PainAttack("DarkLostSoul")
+        NULL A 0 A_Spawnitem("UPH")
+	GATE H 6 BRIGHT A_PainAttack("DarkLostSoul")
+        NULL A 0 A_Spawnitem("UPH")
+	Goto Walk
+Flamefire:
+	NULL A 0 A_playsound("gate/attack")
+        NULL A 0 A_SetInvulnerable
+	GATE G 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPG")
+        GATE G 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPG")
+        GATE G 4 BRIGHT A_FaceTarget
+        NULL A 0 A_Spawnitem("UPG")
+	GATE H 3 BRIGHT A_CustomMissile("FlameBreath", 48, 0, 4, 0)
+        NULL A 0 A_Spawnitem("UPH")
+	GATE H 1 BRIGHT A_FaceTarget
+	GATE H 3 BRIGHT A_CustomMissile("FlameBreath", 48, 0, -4, 0)
+        NULL A 0 A_Spawnitem("UPH")
+	GATE H 1 BRIGHT A_FaceTarget
+	GATE H 3 BRIGHT A_CustomMissile("FlameBreath", 48, 0, 4, 4)
+        NULL A 0 A_Spawnitem("UPH")
+	GATE H 1 BRIGHT A_FaceTarget
+	GATE H 3 BRIGHT A_CustomMissile("FlameBreath", 48, 0, -4, 4)
+        NULL A 0 A_Spawnitem("UPH")
+	GATE H 1 BRIGHT A_FaceTarget
+	GATE H 3 BRIGHT A_CustomMissile("FlameBreath", 48, 0, -4, -4)
+        NULL A 0 A_Spawnitem("UPH")
+	GATE H 1 BRIGHT A_FaceTarget
+	GATE H 3 BRIGHT A_CustomMissile("FlameBreath", 48, 0, 0, 4)
+        NULL A 0 A_Spawnitem("UPH")
+	GATE H 1 BRIGHT A_FaceTarget
+	GATE H 3 BRIGHT A_CustomMissile("FlameBreath", 48, 0, 0, -4)
+        NULL A 0 A_Spawnitem("UPH")
+        NULL A 0 A_UnSetInvulnerable
+	GATE G 12 BRIGHT A_FaceTarget
+	Goto Walk
+Pain:
+	GATE G 3 A_SetInvulnerable
+	NULL A 0 A_Spawnitem("UPG")
+	NULL B 0 A_CustomMissile("GateKeeperPainBlast", 48, 2, 0)
+	NULL B 0 A_CustomMissile("GateKeeperPainBlast", 48, 2, 20)
+	NULL B 0 A_CustomMissile("GateKeeperPainBlast", 48, 2, 40)
+	NULL B 0 A_CustomMissile("GateKeeperPainBlast", 48, 2, 60)
+        NULL B 0 A_CustomMissile("GateKeeperPainBlast", 48, 2, 80)
+        NULL B 0 A_CustomMissile("GateKeeperPainBlast", 48, 2, 100)
+        NULL B 0 A_CustomMissile("GateKeeperPainBlast", 48, 2, 120)
+        NULL B 0 A_CustomMissile("GateKeeperPainBlast", 48, 2, 140)
+        NULL B 0 A_CustomMissile("GateKeeperPainBlast", 48, 2, 160)
+        NULL B 0 A_CustomMissile("GateKeeperPainBlast", 48, 2, 180)
+        NULL B 0 A_CustomMissile("GateKeeperPainBlast", 48, 2, 200)
+        NULL B 0 A_CustomMissile("GateKeeperPainBlast", 48, 2, 220)
+        NULL B 0 A_CustomMissile("GateKeeperPainBlast", 48, 2, 240)
+        NULL B 0 A_CustomMissile("GateKeeperPainBlast", 48, 2, 260)
+        NULL B 0 A_CustomMissile("GateKeeperPainBlast", 48, 2, 280)
+        NULL B 0 A_CustomMissile("GateKeeperPainBlast", 48, 2, 300)
+        NULL B 0 A_CustomMissile("GateKeeperPainBlast", 48, 2, 320)
+        NULL B 0 A_CustomMissile("GateKeeperPainBlast", 48, 2, 340)
+	GATE G 3 A_Pain
+        NULL A 0 A_Spawnitem("UPG")
+        NULL A 0 A_UnSetInvulnerable
+        NULL A 0 A_Jump (64,"Teleport")
+	Goto Walk
+Teleport:
+	GATE G 0 A_SetInvulnerable
+	GATE G 1 A_SetTranslucent(0.90)
+	GATE G 1 A_SetTranslucent(0.80)
+	GATE G 1 A_SetTranslucent(0.70)
+	GATE G 1 A_SetTranslucent(0.60)
+	GATE G 1 A_SetTranslucent(0.50)
+	GATE G 1 A_SetTranslucent(0.40)
+	GATE G 1 A_SetTranslucent(0.30)
+	GATE G 1 A_SetTranslucent(0.20)
+	GATE G 1 A_SetTranslucent(0.10)
+	GATE G 0 A_Jump(128,25)
+	NULL AAAAAAAAAAAAAAAAAAAAAAAA 0 A_ExtChase(0,0,1,1)
+	NULL A 0 A_Jump(128,25)
+	NULL AAAAAAAAAAAAAAAAAAAAAAAA 0 A_ExtChase(0,0,1,1)
+	GATE G 1 A_SetTranslucent(0.10)
+	GATE G 1 A_SetTranslucent(0.20)
+	GATE G 1 A_SetTranslucent(0.30)
+	GATE G 1 A_SetTranslucent(0.40)
+	GATE G 1 A_SetTranslucent(0.50)
+	GATE G 1 A_SetTranslucent(0.60)
+	GATE G 1 A_SetTranslucent(0.70)
+	GATE G 1 A_SetTranslucent(0.80)
+	GATE G 1 A_SetTranslucent(0.90)
+	GATE G 1 A_SetTranslucent(1.0)
+	GATE G 0 A_UnSetInvulnerable
+	goto See
+Death:
+	NULL A 0 A_Jump (128,"AltDeath")
+	GATE I 24 A_Scream
+	GATE J 24
+	GATE K 20 A_Fall
+	GATE L 16
+	GATE M 12
+	GATE N 12 A_BossDeath
+	GATE O 32
+DeathWait:
+	GATE O 128 A_Jump(128,"DeathFade")
+	Loop
+DeathFade:
+	NULL A 0 A_playsound("bodyfade")
+	GATE O 4 A_SetTranslucent (0.9,1)
+	NULL A 0 A_Spawnitem("DeathOut1")
+	GATE O 4 A_SetTranslucent (0.9,1)
+	NULL A 0 A_Spawnitem("DeathOut1")
+	GATE O 4 A_SetTranslucent (0.8,1)
+	NULL A 0 A_Spawnitem("DeathOut2")
+	GATE O 4 A_SetTranslucent (0.8,1)
+	NULL A 0 A_Spawnitem("DeathOut2")
+	GATE O 4 A_SetTranslucent (0.7,1)
+	NULL A 0 A_Spawnitem("DeathOut3")
+	GATE O 4 A_SetTranslucent (0.7,1)
+	NULL A 0 A_Spawnitem("DeathOut3")
+	GATE O 4 A_SetTranslucent (0.6,1)
+	NULL A 0 A_Spawnitem("DeathOut4")
+	GATE O 4 A_SetTranslucent (0.6,1)
+	NULL A 0 A_Spawnitem("DeathOut4")
+	GATE O 4 A_SetTranslucent (0.5,1)
+	NULL A 0 A_Spawnitem("DeathOut5")
+	GATE O 4 A_SetTranslucent (0.5,1)
+	NULL A 0 A_Spawnitem("DeathOut5")
+	GATE O 4 A_SetTranslucent (0.4,1)
+	NULL A 0 A_Spawnitem("DeathOut6")
+	GATE O 4 A_SetTranslucent (0.4,1)
+	NULL A 0 A_Spawnitem("DeathOut6")
+	GATE O 4 A_SetTranslucent (0.3,1)
+	NULL A 0 A_Spawnitem("DeathOut7")
+	GATE O 4 A_SetTranslucent (0.3,1)
+	NULL A 0 A_Spawnitem("DeathOut7")
+	GATE O 4 A_SetTranslucent (0.2,1)
+	NULL A 0 A_Spawnitem("DeathOut8")
+	GATE O 4 A_SetTranslucent (0.2,1)
+	NULL A 0 A_Spawnitem("DeathOut8")
+	GATE O 4 A_SetTranslucent (0.1,1)
+	NULL A 0 A_Spawnitem("DeathOut9")
+	GATE O 4 A_SetTranslucent (0.1,1)
+	NULL A 0 A_Spawnitem("DeathOut9")
+	Stop
+AltDeath:
+	GATE A 4 A_Scream
+	NULL A 0 A_BossDeath
+	GATE A 2 A_playsound("bodyfade")
+	Goto AltDeathFade
+AltDeathFade:
+	GATE AA 6 A_ExtChase(0,0,1,1)
+	NULL A 0 A_Fadeout
+	GATE BB 6 A_ExtChase(0,0,1,1)
+	NULL A 0 A_Fadeout
+	GATE CC 6 A_ExtChase(0,0,1,1)
+	NULL A 0 A_Fadeout
+	GATE DD 6 A_ExtChase(0,0,1,1)
+	NULL A 0 A_Fadeout
+	GATE AA 6 A_ExtChase(0,0,1,1)
+	NULL A 0 A_Pain
+	NULL A 0 A_Fadeout
+	GATE BB 6 A_ExtChase(0,0,1,1)
+	NULL A 0 A_Fadeout
+	GATE CC 6 A_ExtChase(0,0,1,1)
+	NULL A 0 A_Fadeout
+	GATE DD 6 A_ExtChase(0,0,1,1)
+	NULL A 0 A_Pain
+	NULL A 0 A_Fadeout
+	Loop
+}
+}
+
+actor OrbitOn : Inventory
+{
+    Inventory.MaxAmount 1
+}
+
+actor GateOrbit1 : DoomImpBall
+{
+SeeSound ""
++NOCLIP
+Speed 3
+MissileHeight 0
+RenderStyle Normal
+States
+{
+Spawn:
+NULL AA 2 A_SpawnItem("CubeTailD",-8,0)
+NULL AA 2 A_SpawnItem("CubeTailC",-8,0)
+NULL AA 2 A_SpawnItem("CubeTailB",-8,0)
+NULL AA 2 A_SpawnItem("CubeTailA",-8,0)
+NULL A 0 A_CustomMissile("GateOrbit1", 0, 0, 75)
+Stop
+Death:
+NULL A 1
+Stop
+}
+}
+
+actor GateOrbit2 : DoomImpBall
+{
+SeeSound ""
++NOCLIP
+Speed 3
+MissileHeight 0
+RenderStyle Normal
+States
+{
+Spawn:
+NULL AA 2 A_SpawnItem("CubeTailA",-8,0)
+NULL AA 2 A_SpawnItem("CubeTailB",-8,0)
+NULL AA 2 A_SpawnItem("CubeTailC",-8,0)
+NULL AA 2 A_SpawnItem("CubeTailD",-8,0)
+NULL A 0 A_CustomMissile("GateOrbit2", 0, 0, -75)
+Stop
+Death:
+NULL A 1
+Stop
+}
+}
+Actor CubeTailA
+{
++NOCLIP
++NOINTERACTION
++NOGRAVITY
+renderstyle Translucent
+alpha 0.9
+states
+{
+Spawn:
+CORB A 1 A_Fadeout
+loop
+}
+}
+Actor CubeTailB
+{
++NOCLIP
++NOINTERACTION
++NOGRAVITY
+renderstyle Translucent
+alpha 0.9
+states
+{
+Spawn:
+CORB B 1 A_Fadeout
+loop
+}
+}
+Actor CubeTailC
+{
++NOCLIP
++NOINTERACTION
++NOGRAVITY
+renderstyle Translucent
+alpha 0.9
+states
+{
+Spawn:
+CORB C 1 A_Fadeout
+loop
+}
+}
+Actor CubeTailD
+{
++NOCLIP
++NOINTERACTION
++NOGRAVITY
+renderstyle Translucent
+alpha 0.9
+states
+{
+Spawn:
+CORB D 1 A_Fadeout
+loop
+}
+}
+ACTOR GateKeeperBlast1
+{
+Radius 6
+Height 16
+Speed 20
+FastSpeed 25
+Damage 20
+DamageType lightning
+Projectile 
++RANDOMIZE
++BLOODLESSIMPACT
+renderstyle Translucent
+alpha 0.6
+SeeSound "gate/PLASMA"
+DeathSound "weapons/plasmax"
+Decal "LowerPlasma"
+States
+{
+Spawn:
+RING B 2 BRIGHT A_Spawnitem("BlastTail1")
+Loop
+Death:
+DEAD BCDEF 6 BRIGHT A_Fadeout
+Stop
+}
+}
+Actor BlastTail1
+{
++NOCLIP
++NOINTERACTION
++NOGRAVITY
+renderstyle Translucent
+alpha 0.6
+states
+{
+Spawn:
+NULL A 2
+RING B 2 A_Fadeout
+Goto Spawn+1
+}
+}
+ACTOR GateKeeperPainBlast
+{
+Radius 6
+Height 16
+Speed 20
+FastSpeed 25
+Damage 20
+DamageType lightning
+Projectile 
++RANDOMIZE
++BLOODLESSIMPACT
+renderstyle Translucent
+alpha 0.6
+SeeSound "gate/PLASMA"
+DeathSound "weapons/plasmax"
+Decal "GateKeeperPlasma"
+States
+{
+Spawn:
+RPLS AAAA 1 BRIGHT A_Spawnitem("PainTailA")
+RPLS BBBB 1 BRIGHT A_Spawnitem("PainTailB")
+Loop
+Death:
+DEAD BCDEF 6 BRIGHT
+Stop
+}
+}
+Actor PainTailA
+{
++NOCLIP
++NOINTERACTION
++NOGRAVITY
+renderstyle Translucent
+alpha 0.6
+states
+{
+Spawn:
+NULL A 2
+RPLS A 1 A_Fadeout
+Goto Spawn+1
+}
+}
+Actor PainTailB
+{
++NOCLIP
++NOINTERACTION
++NOGRAVITY
+renderstyle Translucent
+alpha 0.6
+states
+{
+Spawn:
+NULL A 2
+RPLS B 1 A_Fadeout
+Goto Spawn+1
+}
+}
+ACTOR GateKeeperBlast2
+{
+Radius 6
+Height 16
+Speed 15
+Damage 100
+DamageType lightning
+Projectile 
++RANDOMIZE
++BLOODLESSIMPACT
+renderstyle Translucent
+alpha 0.9
+SeeSound "fire"
+DeathSound "IMPACT"
+Decal "LaserScorch"
+States
+{
+Spawn:
+RING A 4 BRIGHT A_Spawnitem("BlastTail2")
+Loop
+Death:
+LASX ABCDEFGHI 3 BRIGHT
+LASX JKLMN 3 BRIGHT A_Fadeout
+Stop
+}
+}
+Actor BlastTail2
+{
++NOCLIP
++NOINTERACTION
++NOGRAVITY
+renderstyle Translucent
+alpha 0.9
+states
+{
+Spawn:
+NULL A 4
+RING ABCDE 8
+stop
+}
+}
+Actor Laser : Plasmaball
+{
++BLOODLESSIMPACT
+seesound "fire"
+Deathsound "IMPACT"
+speed 25
+damage 600
+DamageType lightning
+renderstyle Translucent
+alpha 0.6
+decal "LaserScorch"
+States
+{
+Spawn:
+SLGK A 1 bright A_SpawnItem("Lasertrail")
+loop
+Death:
+LASX ABCDEFGHI 3 BRIGHT
+LASX JKLMN 3 BRIGHT A_Fadeout
+Stop
+}
+}
+Actor Lasertrail
+{
++NOCLIP
++NOINTERACTION
++NOGRAVITY
+renderstyle Translucent
+alpha 0.6
+states
+{
+Spawn:
+SLGK A 1 bright A_Fadeout
+loop
+}
+}
+ACTOR PlasmaGernade
+{
+Radius 11
+Height 8
+Speed 25
+Damage 20
+DamageType lightning
+Projectile
++DoomBounce
+-NoGravity
+SeeSound ""
+DeathSound "gate/PLASMA"
+States
+{
+Spawn:
+DEAD A 4 A_SpawnItem("PlasmaGernadetrail", 0, 0, 0)
+Loop
+Death:
+NULL A 0 A_SetTranslucent (0.8,1) 
+DEAD B 3 BRIGHT A_Explode
+DEAD C 3 BRIGHT
+NULL A 0 Bright A_custommissile("PlasmaGernadeblast",0,0,0,2,0)
+NULL A 0 Bright A_custommissile("PlasmaGernadeblast",0,0,20,2,0)
+NULL A 0 Bright A_custommissile("PlasmaGernadeblast",0,0,40,2,0)
+NULL A 0 Bright A_custommissile("PlasmaGernadeblast",0,0,60,2,0)
+NULL A 0 Bright A_custommissile("PlasmaGernadeblast",0,0,80,2,0)
+NULL A 0 Bright A_custommissile("PlasmaGernadeblast",0,0,100,2,0)
+NULL A 0 Bright A_custommissile("PlasmaGernadeblast",0,0,120,2,0)
+NULL A 0 Bright A_custommissile("PlasmaGernadeblast",0,0,140,2,0)
+NULL A 0 Bright A_custommissile("PlasmaGernadeblast",0,0,160,2,0)
+NULL A 0 Bright A_custommissile("PlasmaGernadeblast",0,0,180,2,0)
+NULL A 0 Bright A_custommissile("PlasmaGernadeblast",0,0,200,2,0)
+NULL A 0 Bright A_custommissile("PlasmaGernadeblast",0,0,220,2,0)
+NULL A 0 Bright A_custommissile("PlasmaGernadeblast",0,0,240,2,0)
+NULL A 0 Bright A_custommissile("PlasmaGernadeblast",0,0,260,2,0)
+NULL A 0 Bright A_custommissile("PlasmaGernadeblast",0,0,280,2,0)
+NULL A 0 Bright A_custommissile("PlasmaGernadeblast",0,0,300,2,0)
+NULL A 0 Bright A_custommissile("PlasmaGernadeblast",0,0,320,2,0)
+NULL A 0 Bright A_custommissile("PlasmaGernadeblast",0,0,340,2,0)
+DEAD DEF 3 BRIGHT
+Stop
+}
+}
+ACTOR PlasmaGernadetrail
+{
++NOCLIP
++NOINTERACTION
++NOGRAVITY
+renderstyle "Translucent"
+alpha 0.6
+scale .33
+states
+{
+Spawn:
+NULL A 4
+SMKE ABCDEFG 2 Bright
+SMKE HIJKLMN 2 Bright A_fadeout
+Stop
+}
+}
+actor PlasmaGernadeblast
+{
+Radius 6
+Height 12
+Speed 5
+Damage 2
+DamageType lightning
+PROJECTILE
+RENDERSTYLE "Translucent"
++Ripper
+ALPHA 0.8
+SeeSound ""
+DeathSound ""
+States
+{
+Spawn:
+RPLS AB 4 Bright
+DEAD BCDEF 2 Bright A_Fadeout
+stop
+}
+}
+Actor FlameBreath : BaronBall
+{
+SeeSound "FLAME"
+Deathsound ""
+speed 10
+damage 15
+DamageType fire
+renderstyle Translucent
+alpha 0.6
+Scale .75
++RIPPER
++BLOODLESSIMPACT
+decal "GateScorch"
+States
+{
+Spawn:
+LASX ABCDEFGHIJ 6 bright A_Explode (2, 62, 0)
+Death:
+LASX KLMN 6 bright
+Stop
+}
+}
+ACTOR GateBulletPuff
+{
++NOBLOCKMAP
++NOGRAVITY
++ALLOWPARTICLES
++RANDOMIZE
++PUFFONACTORS
+RenderStyle "Translucent"
+Alpha 0.85
+VSpeed 1
+Mass 5
+Scale .33
+States
+{
+Spawn:
+SMKE ABCDEFG 2
+SMKE H 2 A_SetTranslucent (0.8,1)
+NULL A 0 A_BishopMissileWeave
+SMKE I 2 A_SetTranslucent (0.6,1)
+NULL A 0 A_BishopMissileWeave
+SMKE J 2 A_SetTranslucent (0.5,1)
+NULL A 0 A_BishopMissileWeave
+SMKE K 2 A_SetTranslucent (0.4,1)
+NULL A 0 A_BishopMissileWeave
+SMKE L 2 A_SetTranslucent (0.3,1)
+NULL A 0 A_BishopMissileWeave
+SMKE M 2 A_SetTranslucent (0.2,1)
+NULL A 0 A_BishopMissileWeave
+SMKE N 2 A_SetTranslucent (0.1,1)
+NULL A 0 A_BishopMissileWeave
+Stop
+}
+}
+Actor UpA
+{
++NOCLIP
++NOINTERACTION
++NOGRAVITY
+renderstyle Translucent
+alpha 0.6
+VSpeed 5
+states
+{
+Spawn:
+GATE A 2 A_Fadeout
+loop
+}
+}
+Actor UpB
+{
++NOCLIP
++NOINTERACTION
++NOGRAVITY
+renderstyle Translucent
+alpha 0.6
+VSpeed 5
+states
+{
+Spawn:
+GATE B 2 A_Fadeout
+loop
+}
+}
+Actor UpC
+{
++NOCLIP
++NOINTERACTION
++NOGRAVITY
+renderstyle Translucent
+alpha 0.6
+VSpeed 5
+states
+{
+Spawn:
+GATE C 2 A_Fadeout
+loop
+}
+}
+Actor UpD
+{
++NOCLIP
++NOINTERACTION
++NOGRAVITY
+renderstyle Translucent
+alpha 0.6
+VSpeed 5
+states
+{
+Spawn:
+GATE D 2 A_Fadeout
+loop
+}
+}
+Actor UpE
+{
++NOCLIP
++NOINTERACTION
++NOGRAVITY
+renderstyle Translucent
+alpha 0.6
+VSpeed 5
+states
+{
+Spawn:
+NULL A 2
+GATE E 1 A_Fadeout
+goto Spawn+1
+}
+}
+Actor UpF
+{
++NOCLIP
++NOINTERACTION
++NOGRAVITY
+renderstyle Translucent
+alpha 0.6
+VSpeed 5
+states
+{
+Spawn:
+NULL A 2
+GATE E 1 A_Fadeout
+goto Spawn+1
+}
+}
+Actor UpG
+{
++NOCLIP
++NOINTERACTION
++NOGRAVITY
+renderstyle Translucent
+alpha 0.6
+VSpeed 5
+states
+{
+Spawn:
+NULL A 2
+GATE G 1 A_Fadeout
+goto Spawn+1
+}
+}
+Actor UpH
+{
++NOCLIP
++NOINTERACTION
++NOGRAVITY
+renderstyle Translucent
+alpha 0.6
+VSpeed 5
+states
+{
+Spawn:
+NULL A 2
+GATE H 1 A_Fadeout
+goto Spawn+1
+}
+}
+Actor UpP
+{
++NOCLIP
++NOINTERACTION
++NOGRAVITY
+renderstyle Translucent
+alpha 0.6
+VSpeed 5
+states
+{
+Spawn:
+NULL A 2
+GATE P 1 A_Fadeout
+goto Spawn+1
+}
+}
+Actor DeathOut1
+{
++NOCLIP
++NOINTERACTION
++NOGRAVITY
+renderstyle Translucent
+alpha 0.9
+VSpeed 5
+states
+{
+Spawn:
+GATE O 5 A_Fadeout
+loop
+}
+}
+Actor DeathOut2
+{
++NOCLIP
++NOINTERACTION
++NOGRAVITY
+renderstyle Translucent
+alpha 0.8
+VSpeed 5
+states
+{
+Spawn:
+GATE O 5 A_Fadeout
+loop
+}
+}
+Actor DeathOut3
+{
++NOCLIP
++NOINTERACTION
++NOGRAVITY
+renderstyle Translucent
+alpha 0.7
+VSpeed 5
+states
+{
+Spawn:
+GATE O 5 A_Fadeout
+loop
+}
+}
+Actor DeathOut4
+{
++NOCLIP
++NOINTERACTION
++NOGRAVITY
+renderstyle Translucent
+alpha 0.6
+VSpeed 5
+states
+{
+Spawn:
+GATE O 5 A_Fadeout
+loop
+}
+}
+Actor DeathOut5
+{
++NOCLIP
++NOINTERACTION
++NOGRAVITY
+renderstyle Translucent
+alpha 0.5
+VSpeed 5
+states
+{
+Spawn:
+GATE O 5 A_Fadeout
+loop
+}
+}
+Actor DeathOut6
+{
++NOCLIP
++NOINTERACTION
++NOGRAVITY
+renderstyle Translucent
+alpha 0.4
+VSpeed 5
+states
+{
+Spawn:
+GATE O 5 A_Fadeout
+loop
+}
+}
+Actor DeathOut7
+{
++NOCLIP
++NOINTERACTION
++NOGRAVITY
+renderstyle Translucent
+alpha 0.3
+VSpeed 5
+states
+{
+Spawn:
+GATE O 5 A_Fadeout
+loop
+}
+}
+Actor DeathOut8
+{
++NOCLIP
++NOINTERACTION
++NOGRAVITY
+renderstyle Translucent
+alpha 0.2
+VSpeed 5
+states
+{
+Spawn:
+GATE O 5 A_Fadeout
+loop
+}
+}
+Actor DeathOut9
+{
++NOCLIP
++NOINTERACTION
++NOGRAVITY
+renderstyle Translucent
+alpha 0.1
+VSpeed 5
+states
+{
+Spawn:
+GATE O 5 A_Fadeout
+loop
+}
+}
+//end of gatekeeper
+//sprites by zrrion
+ACTOR DarkLostSoul : LostSoul
+{
+Health 100
+Radius 16
+Height 56
+Mass 50
+Speed 8
+Damage 5
+DamageType fire
+PainChance 256
+Monster
+renderstyle normal
++FLOAT
++NOGRAVITY
++MISSILEMORE
++DONTFALL
++NOICEDEATH
++NOBLOOD
++NORADIUSDMG
++NOTARGET
+AttackSound ""
+PainSound "skull/pain"
+DeathSound "skull/death"
+ActiveSound "skull/active"
+Obituary "%o was eaten by a dark soul"
+States
+{
+Spawn:
+SKU2 A 3 BRIGHT A_Look
+NULl A 0 A_SpawnItem("Dskulltail")
+SKU2 A 3 BRIGHT A_Look
+NULL A 0 A_SpawnItem("Dskulltail")
+SKU2 B 3 BRIGHT A_Look
+NULL A 0 A_SpawnItem("Dskulltail")
+SKU2 B 3 BRIGHT A_Look
+NULL A 0 A_SpawnItem("Dskulltail")
+Loop
+See:
+SKU2 A 3 BRIGHT
+NULl A 0 A_SpawnItem("Dskulltail")
+SKU2 A 3 BRIGHT A_Chase
+NULL A 0 A_SpawnItem("Dskulltail")
+SKU2 B 3 BRIGHT
+NULL A 0 A_SpawnItem("Dskulltail")
+SKU2 B 3 BRIGHT A_Chase
+NULL A 0 A_SpawnItem("Dskulltail")
+Loop
+Missile:
+SKU2 C 2 BRIGHT A_FaceTarget
+NULL A 0 A_SpawnItem("Dskulltail2")
+SKU2 C 2 BRIGHT A_FaceTarget
+NULL A 0 A_SpawnItem("Dskulltail2")
+SKU2 C 2 BRIGHT A_FaceTarget
+NULL A 0 A_SpawnItem("Dskulltail2")
+SKU2 C 2 BRIGHT A_FaceTarget
+NULL A 0 A_SpawnItem("Dskulltail2")
+SKU2 C 2 BRIGHT A_FaceTarget
+NULL A 0 A_SpawnItem("Dskulltail2")
+NULL A 0 A_Playsound("skull/melee")
+SKU2 D 2 BRIGHT A_SkullAttack
+NULL A 0 A_SpawnItem("Dskulltail2")
+SKU2 D 2 BRIGHT A_SkullAttack
+NULL A 0 A_SpawnItem("Dskulltail2")
+SKU2 D 2 BRIGHT A_SkullAttack
+NULL A 0 A_SpawnItem("Dskulltail2")
+SKU2 D 2 BRIGHT A_SkullAttack
+NULL A 0 A_SpawnItem("Dskulltail2")
+SKU2 D 2 BRIGHT A_SkullAttack
+NULL A 0 A_SpawnItem("Dskulltail2")
+SKU2 D 2 BRIGHT A_SkullAttack
+NULL A 0 A_SpawnItem("Dskulltail2")
+SKU2 D 2 BRIGHT A_SkullAttack
+NULL A 0 A_SpawnItem("Dskulltail2")
+SKU2 D 2 BRIGHT A_SkullAttack
+NULL A 0 A_SpawnItem("Dskulltail2")
+SKU2 D 2 BRIGHT A_SkullAttack
+NULL A 0 A_SpawnItem("Dskulltail2")
+SKU2 D 2 BRIGHT A_SkullAttack
+NULL A 0 A_SpawnItem("Dskulltail2")
+SKU2 C 2 BRIGHT
+NULL A 0 A_SpawnItem("Dskulltail2")
+SKU2 D 2 BRIGHT
+NULL A 0 A_SpawnItem("Dskulltail2")
+SKU2 D 2 BRIGHT
+NULL A 0 A_SpawnItem("Dskulltail2")
+Goto Missile+2
+Pain:
+SKU2 E 3 BRIGHT
+SKU2 E 3 BRIGHT A_Pain
+Goto See
+Death:
+SKU2 F 6 BRIGHT
+SKU2 G 6 BRIGHT A_Scream
+SKU2 H 6 BRIGHT A_Explode
+SKU2 I 6 BRIGHT A_NoBlocking
+SKU2 JK 6
+Stop
+}
+}
+Actor Dskulltail
+{
++NOCLIP
++NOINTERACTION
++NOGRAVITY
+renderstyle ADD
+alpha 0.6
+VSpeed 1
+states
+{
+Spawn:
+SKU2 AB 2 A_fadeout
+loop
+}
+}
+Actor Dskulltail2
+{
++NOCLIP
++NOINTERACTION
++NOGRAVITY
+renderstyle ADD
+alpha 0.6
+states
+{
+Spawn:
+SKU2 CD 2 A_fadeout
+loop
+}
+}

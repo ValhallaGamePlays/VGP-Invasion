@@ -1,4 +1,4 @@
-ACTOR cyberImp 12376
+ACTOR cyberImp 30135
 {
   Game Doom
   SpawnID 5
@@ -76,7 +76,7 @@ ACTOR CyberArm
 	}
 } 
 
-ACTOR cyberimpSpot : CustomMonsterInvasionSpot 12377
+ACTOR cyberimpSpot : CustomMonsterInvasionSpot 30136
 {
 DropItem cyberimp
 }

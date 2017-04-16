@@ -1,6 +1,6 @@
 Actor Wicked 30133
 { 
-  Health 2000
+  Health 1000
   Radius 25
   Height 88
   Mass 200 

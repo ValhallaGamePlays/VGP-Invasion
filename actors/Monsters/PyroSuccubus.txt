@@ -5,7 +5,7 @@
 //===========================================================================
 
 
-actor PyroSuccubus 9480
+actor PyroSuccubus 3112
 {
   //$Category Monsters
   //$Title "Pyro Succubus"
@@ -51,7 +51,7 @@ actor PyroSuccubus 9480
        SUC1 A 0 A_Jump(32,"Grav")
        Loop
     Grav:
-	   TNT1 A 0 A_JumpIf( Z + height + 100 >= CeilingZ, "See")
+	   TNT1 A 0 A_JumpIf( Z + 50 + 100 >= CeilingZ, "See")
        TNT1 A 0 A_ChangeFlag("NOGRAVITY",1)
        TNT1 A 0 A_ChangeFlag("DROPOFF",1)
        TNT1 A 0 A_ChangeFlag("FLOAT",1)
@@ -430,7 +430,7 @@ actor PyroTail
     }
 }
 
-ACTOR PyroSuccubusSpot : CustomMonsterInvasionSpot 9481
+ACTOR PyroSuccubusSpot : CustomMonsterInvasionSpot 3113
 {
 DropItem PyroSuccubus
 }

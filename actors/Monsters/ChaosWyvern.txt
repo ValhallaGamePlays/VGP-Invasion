@@ -1,4 +1,4 @@
-ACTOR ChaosWyvern 12349
+ACTOR ChaosWyvern 32764
 {
 	Monster
 	Health 1000

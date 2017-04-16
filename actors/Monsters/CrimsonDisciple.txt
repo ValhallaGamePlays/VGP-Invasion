@@ -1,4 +1,4 @@
-ACTOR CrimsonDisciple 12374
+ACTOR CrimsonDisciple 30137
 {
 	SpawnID 35
 	MONSTER
@@ -193,7 +193,7 @@ ACTOR RainPillar2 : RainPillar
 	}
 }
 
-ACTOR CrimsonDiscipleSpot : CustomMonsterInvasionSpot 12375
+ACTOR CrimsonDiscipleSpot : CustomMonsterInvasionSpot 30138
 {
 DropItem CrimsonDisciple
 }

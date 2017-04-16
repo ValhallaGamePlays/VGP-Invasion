@@ -1,4 +1,4 @@
-actor Aracnorb 6335
+actor Aracnorb 6334
 {
   MONSTER
   +NOGRAVITY
@@ -86,7 +86,7 @@ actor AracnorbBall
   }
 }
 
-ACTOR AracnorbSpot : CustomMonsterInvasionSpot 6337
+actor Aracnorbspot : CustomMonsterInvasionSpot 6335
 {
-DropItem Aracnorb
+dropitem Aracnorb
 }

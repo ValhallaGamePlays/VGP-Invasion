@@ -1,10 +1,10 @@
 actor GoldenBoner : Revenant 3124
 {
-    Health 4000
+    Health 7500
     Radius 15
     Height 42
     Speed 20
-    Scale 1.666
+    Scale 2
     Monster
     +BOSS
     Obituary "%o was boned."

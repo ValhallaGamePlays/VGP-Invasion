@@ -1,0 +1,140 @@
+//drone
+decal DroneDecal1
+{
+	pic DRFXA1
+	shade "08 08 08"
+	randomflipx
+	randomflipy
+}
+decal DroneDecal2
+{
+	pic DRFXB1
+	shade "08 08 08"
+	randomflipx
+	randomflipy
+}
+decalgroup DroneDecal
+{
+	DroneDecal1        1
+	DroneDecal2        1
+}
+generator DroneShot        DroneDecal
+
+
+//Gatekeeper
+decal LowerPlasma1
+{
+	pic PLASMA1
+	shade "00 00 00"
+	randomflipx
+	randomflipy
+	animator GoAway2
+}
+
+decal LowerPlasma2
+{
+	pic PLASMA2
+	shade "00 00 00"
+	randomflipx
+	randomflipy
+	animator GoAway2
+}
+
+decalgroup LowerPlasma
+{
+	LowerPlasma1	1
+	LowerPlasma2	1
+}
+
+decal LaserScorch1
+{
+	pic BFGLITE1
+	shade "00 00 00"
+	fullbright
+	randomflipx
+	animator GoAway2
+	lowerdecal LowerPlasma
+}
+
+decal LaserScorch2
+{
+	pic BFGLITE2
+	shade "00 00 00"
+	fullbright
+	randomflipy
+	animator GoAway2
+	lowerdecal LowerPlasma
+}
+
+decalgroup LaserScorch
+{
+	LaserScorch1	1
+	LaserScorch2	1
+}
+
+decal GateKeeperBulletchip1
+{
+	pic PLASMA1
+	shade "00 00 00"
+	x-scale 0.125
+	y-scale 0.125
+	randomflipx
+	randomflipy
+	animator GoAway2
+}
+
+decal GateKeeperBulletchip2
+{
+	pic PLASMA2
+	shade "00 00 00"
+	x-scale 0.125
+	y-scale 0.125
+	randomflipx
+	randomflipy
+	animator GoAway2
+}
+
+decalgroup GateKeeperBulletchip
+{
+	GateKeeperBulletchip1	1
+	GateKeeperBulletchip2	1
+}
+
+decal GateKeeperPlasma1
+{
+	pic PLASMA1
+	shade "00 00 00"
+	x-scale 0.5
+	y-scale 0.5
+	randomflipx
+	randomflipy
+	animator GoAway2
+}
+
+decal GateKeeperPlasma2
+{
+	pic PLASMA2
+	shade "00 00 00"
+	x-scale 0.5
+	y-scale 0.5
+	randomflipx
+	randomflipy
+	animator GoAway2
+}
+
+decalgroup GateKeeperPlasma
+{
+	GateKeeperPlasma1	1
+	GateKeeperPlasma2	1
+}
+
+decal GateScorch
+{
+	pic SCORCH1
+	shade "00 00 00"
+	x-scale 0.75
+	y-scale 0.75
+	randomflipx
+	randomflipy
+	animator GoAway2
+}

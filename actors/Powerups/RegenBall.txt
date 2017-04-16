@@ -1,0 +1,12 @@
+ACTOR RegenBall 6241
+{
+    //$Category ZT3 Stuff
+    //$Title Health Regen Thingy
+    //$Sprite TNT1A0
+    States
+    {
+        Spawn:
+            TNT1 A 45 Bright A_RadiusGive("Health", 84, RGF_PLAYERS, 5)
+            Loop
+    }
+}

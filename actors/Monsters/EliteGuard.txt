@@ -1,4 +1,4 @@
-Actor EliteGuard 12370//Thanks MagicWazard
+Actor EliteGuard 30139//Thanks MagicWazard
 {
 Health 130
 Radius 20
@@ -90,7 +90,7 @@ DisintegrateForStrife:
 }
 }
 
-ACTOR EliteGuardSpot : CustomMonsterInvasionSpot 12371
+ACTOR EliteGuardSpot : CustomMonsterInvasionSpot 30141
 {
 DropItem EliteGuard
 }

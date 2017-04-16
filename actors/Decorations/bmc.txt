@@ -1,0 +1,75 @@
+ACTOR PLANT1 3500
+{
+	radius 12
+	height 12
+	+thruactors
+	//$category vegetation
+	states
+	{
+	spawn:
+	PLNT K 1
+	PLNT k -1
+	stop
+	}
+}
+
+ACTOR PLANT2 : PLANT1 3501
+	{
+	states
+	{
+	spawn:
+	PLNT L 1
+	PLNT L -1
+	stop
+	}
+}
+
+ACTOR PLANT3 : PLANT1 3502
+	{
+	states
+	{
+	spawn:
+	PLNT M 1
+	PLNT M -1
+	stop
+	}
+}
+
+ACTOR PALM1 3503
+{
+   radius 8
+   height 264
+   +solid
+   //$category vegetation
+	states
+	{
+	spawn:
+	TREE O 1
+	TREE O -1
+	stop
+	}
+}
+
+
+
+ACTOR PALM1Small: Palm1 3504
+{
+   radius 8
+   height 128
+   scale 0.5
+}
+
+ACTOR BIRD1 3505
+{
+	radius 12
+	height 32
+	+solid
+	//$category random shit
+	states
+	{
+	spawn:
+	BIRD A 1
+	BIRD A -1
+	stop
+	}
+}

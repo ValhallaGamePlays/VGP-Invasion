@@ -2,12 +2,12 @@ actor Maephisto 12380
 {
 
   obituary "%o was vaporised by a Maephisto."
-  health 35000
-  radius 250
-  height 250
+  health 3500
+  radius 50
+  height 100
   mass 1000
   speed 10
-  scale 4.0
+  scale 1.5
   painchance 20
   seesound "sight"
   painsound "pain"

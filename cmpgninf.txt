@@ -57,3 +57,15 @@ mapname = VGPINV10
 gamemode = invasion
 wavelimit = 6
 }
+
+{
+mapname = VGPINV11
+gamemode = invasion
+wavelimit = 6
+}
+
+{
+mapname = VGPINV12
+gamemode = invasion
+wavelimit = 6
+}

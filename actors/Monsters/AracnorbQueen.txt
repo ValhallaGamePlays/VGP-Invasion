@@ -252,8 +252,3 @@ ACTOR ZWAVE
       Stop
    }
 }
-
-ACTOR AracnorbQueenSpot : CustomMonsterInvasionSpot 6334
-{
-DropItem AracnorbQueen
-}

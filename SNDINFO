@@ -1,0 +1,118 @@
+//Sound Info//
+//Gatekeeper
+//from source guardin, modified by zrrion
+gate/sight see
+gate/attack fight
+gate/pain pain
+gate/death death
+FLAME FLAME
+
+//ID/Raven sounds, modified by zrrion
+spider/walk1 dsmetal
+spider/walk2 dsmetal1
+spider/walk3 dsmetal2
+$random spider/walk { spider/walk1 spider/walk2 spider/walk3 }
+gate/PLASMA1 DSPLAS1
+gate/PLASMA2 DSPLAS2
+$random gate/PLASMA { gate/PLASMA1 gate/PLASMA2 }
+gate/PLASMA3 DSPLAS3
+gate/PLASMA4 DSPLAS4
+$random gate/PLASMASHOT { gate/PLASMA3 gate/PLASMA4 }
+bodyfade BODYFADE
+
+//sounds from Activision's Netstorm
+fire fire
+IMPACT IMPACT
+
+//sounds by zrrion
+gate/active1 act1
+gate/active2 act2
+gate/active3 act3
+$random gate/active { gate/active1 gate/active2 gate/active3 }
+gate/yell yell
+
+//Moloch
+moloch/grenade dsmolgrn
+moloch/grenexp dsgrexpl
+moloch/scorch dsswoosh
+moloch/scorchhit dsscrexp
+moloch/wraith dswrasee
+moloch/wraithdie dswradth
+moloch/emberexp dsembexp
+moloch/thunder dsmobolt
+moloch/thundercrash dsbolhit
+moloch/flash dsmolfls
+moloch/flashhit dsflshit
+moloch/death dsmoldth
+moloch/thud dsmothud
+moloch/step dsmstep1
+moloch/wraith dsmolwra
+moloch/wraithdie dswradie
+moloch/nail dsmonail
+moloch/nailhitbleed dsnaiimp
+moloch/wraithattack dswrtchg
+moloch/wraithmelle dswrtatt
+
+ricochet1 dsnailr1
+ricochet2 dsnailr2
+$RANDOM moloch/nailhit { ricochet1 ricochet2 }
+
+msight1 dsmolsi1
+msight2 dsmolsi2
+msight3 dsmolsi3
+$RANDOM moloch/sight { msight1 msight2 msight3 }
+
+mact1 dsmolac1
+mact2 dsmolac2
+mact3 dsmolac3
+mact4 dsmolac4
+$RANDOM moloch/active { mact1 mact2 mact3 mact4 }
+
+mpain1 dsmolpa1
+mpain2 dsmolpa2
+mpain3 dsmolpa3
+$RANDOM moloch/pain { mpain1 mpain2 mpain3 }
+
+mattack1 dsmolat1
+mattack2 dsmolat2
+mattack3 dsmolat3
+mattack4 dsmolat4
+$RANDOM moloch/attack { mattack1 mattack2 mattack3 mattack4 }
+
+//RedDemon
+DemonMissileFire                impfire2
+
+FlameBreath		        FLAMEB
+
+world/volcano/blast		lobhit
+world/volcano/shoot		bstatk
+
+//EliteGuard
+$random elite/see { see01 see02 see03 see04 }
+see01				ELITSIT1
+see02				ELITSIT2
+see03				ELITSIT3
+see04				ELITSIT4
+
+$random elite/pain { pain01 pain02 }
+pain01				ELITPIN1
+pain02				ELITPIN2
+
+$random elite/death { death01 death02 }
+death01				ELITDTH1
+death02				ELITDTH2
+
+$random elite/fire { fire01 fire02 fire03 }
+fire01				ELITFIR1
+fire02				ELITFIR2
+fire03				ELITFIR3
+$limit elite/fire 0
+
+//Cybruiser
+monster/brusit dsbrusit
+
+monster/brudth dsbrudth
+
+monster/bruwlk dsbruwlk
+monster/brufir dsbrufir
+weapons/hellex dshellex

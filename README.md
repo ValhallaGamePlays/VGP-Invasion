@@ -83,7 +83,7 @@ Contact Miles with any questions or concerns: akthunderfolk@gmail.com
     Build Time              : 8 months
     Editor(s) used          : Doom Builder 2, GZDoom Builder, Slade 3
     Known Bugs              : Please contact us if you encounter any!
-    May Not Run With...     : Older engines/Vanilla engines 
+    May Not Run With...     : Older engines/Vanilla engines/pk-amin.pk3 
 
 
     * Copyright / Permissions *

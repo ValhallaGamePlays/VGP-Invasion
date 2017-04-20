@@ -5466,3 +5466,287 @@ object FireBreath
   frame FRBSF { light FireBreath2 }
   frame FRBSG { light FireBreath3 }
 }
+
+//VGPINV08 GLDefs
+//Skybox
+skybox GRIMNITE
+{ 
+		GRNGT_F
+		GRNGT_L
+		GRNGT_B
+		GRNGT_R
+		GRNGT_U
+		GRNGT_D
+}
+
+//Spawner Pads
+
+brightmap texture el_basefx_red
+{
+  map "MD3/Spawner/el_basefx_bm.png"
+}
+
+brightmap texture el_basefx_yellow
+{
+  map "MD3/Spawner/el_basefx2_bm.png"
+}
+
+brightmap texture el_rota_red
+{
+  map "MD3/Spawner/el_rota_bm.png"
+}
+
+brightmap texture teleporter_base
+{
+  map "MD3/Teleporter/teleporter_base_bm.png"
+}
+
+brightmap texture teleporter_sphere
+{
+  map "MD3/Teleporter/teleporter_sphere_bm.png"
+}
+
+brightmap texture teleporter_sphere2
+{
+  map "MD3/Teleporter/teleporter_sphere_bm.png"
+}
+
+brightmap texture el_rota_yellow
+{
+  map "MD3/Spawner/el_rota_bm.png"
+}
+
+//Sparks
+
+flickerlight YellowBigFlicker1
+{
+    color 1.0 0.8 0.0
+    size 150
+    secondarySize 155
+    chance 0.4
+}
+flickerlight YellowBigFlicker2
+{
+    color 1.0 0.8 0.0
+    size 120
+    secondarySize 125
+    chance 0.4
+}
+flickerlight YellowBigFlicker3
+{
+    color 1.0 0.8 0.0
+    size 90
+    secondarySize 95
+    chance 0.4
+}
+
+//***************************************
+flickerlight YellowMediumFlicker1
+{
+    color 1.0 0.8 0.0
+    size 80
+    secondarySize 85
+    chance 0.4
+}
+flickerlight YellowMediumFlicker2
+{
+    color 1.0 0.8 0.0
+    size 60
+    secondarySize 65
+    chance 0.4
+}
+flickerlight YellowMediumFlicker3
+{
+    color 1.0 0.8 0.0
+    size 50
+    secondarySize 55
+    chance 0.4
+}
+
+//***************************************
+flickerlight YellowSmallFlicker1
+{
+    color 1.0 0.8 0.0
+    size 40
+    secondarySize 45
+    chance 0.4
+}
+flickerlight YellowSmallFlicker2
+{
+    color 1.0 0.8 0.0
+    size 20
+    secondarySize 25
+    chance 0.4
+}
+flickerlight YellowSmallFlicker3
+{
+    color 1.0 0.8 0.0
+    size 10
+    secondarySize 15
+    chance 0.4
+}
+//***************************************
+flickerlight FlamerYellowSmallFlicker1
+{
+    color 0.7 0.5 0.0
+    size 40
+    secondarySize 45
+    chance 0.4
+}
+flickerlight FlamerYellowSmallFlicker2
+{
+    color 0.7 0.5 0.0
+    size 20
+    secondarySize 25
+    chance 0.4
+}
+flickerlight FlamerYellowSmallFlicker3
+{
+    color 0.7 0.5 0.0
+    size 10
+    secondarySize 15
+    chance 0.4
+}
+flickerlight FlamerYellowSmallFlicker4
+{
+    color 0.9 0.7 0.0
+    size 20
+    secondarySize 25
+    chance 0.4
+}
+
+//***************************************
+//***************************************
+pointlight YellowBigPoint1
+{
+    color 1.0 0.8 0.0
+    size 140
+}
+pointlight YellowBigPoint2
+{
+    color 1.0 0.8 0.0
+    size 110
+}
+pointlight YellowBigPoint3
+{
+    color 1.0 0.8 0.0
+    size 80
+}
+
+//***************************************
+pointlight YellowMediumPoint1
+{
+    color 1.0 0.8 0.0
+    size 75
+}
+pointlight YellowMediumPoint2
+{
+    color 1.0 0.8 0.0
+    size 55
+}
+pointlight YellowMediumPoint3
+{
+    color 1.0 0.8 0.0
+    size 45
+}
+
+//***************************************
+pointlight YellowSmallPoint1
+{
+    color 1.0 0.8 0.0
+    size 30
+}
+pointlight YellowSmallPoint2
+{
+    color 1.0 0.8 0.0
+    size 20
+}
+pointlight YellowSmallPoint3
+{
+    color 1.0 0.8 0.0
+    size 10
+}
+////
+flickerlight WhiteBigFlicker3
+{
+    color 1.0 1.0 1.0
+    size 90
+    secondarySize 95
+    chance 0.4
+}
+
+//--------Sparks
+Pointlight RedSparkFlare
+{
+Color 0.4 0.0 0.0
+Size 12
+}
+
+Object SparkFlare_R1 { Frame SPKR { Light RedSparkFlare } }
+Object SparkFlare_R2 { Frame SPKR { Light RedSparkFlare } }
+Object SparkFlare_R3 { Frame SPKR { Light RedSparkFlare } }
+Object SparkFlare_R4 { Frame SPKR { Light RedSparkFlare } }
+Object SparkFlare_R5 { Frame SPKR { Light RedSparkFlare } }
+Object SparkFlare_R6 { Frame SPKR { Light RedSparkFlare } }
+Object SparkFlare_R6 { Frame SPKR { Light RedSparkFlare } }
+
+Pointlight YellowSparkFlare
+{
+Color 1.0 1.0 0.0
+Size 12
+}
+
+Object SparkFlare_Y1 { Frame SPKY { Light YellowSparkFlare } }
+Object SparkFlare_Y2 { Frame SPKY { Light YellowSparkFlare } }
+Object SparkFlare_Y3 { Frame SPKY { Light YellowSparkFlare } }
+Object SparkFlare_Y4 { Frame SPKY { Light YellowSparkFlare } }
+Object SparkFlare_Y5 { Frame SPKY { Light YellowSparkFlare } }
+Object SparkFlare_Y6 { Frame SPKY { Light YellowSparkFlare } }
+
+
+//"Wires"
+brightmap texture STRIPLIB
+{
+  map "Brightmaps/striplight_blue.blend.jpg"
+}
+
+brightmap texture STRIPLR2
+{
+  map "Brightmaps/striplight_red2.blend.jpg"
+}
+
+brightmap texture STRIPLBV
+{
+  map "Brightmaps/striplight_bluevert.blend.jpg"
+}
+
+brightmap texture STRIPLRV 
+{
+  map "Brightmaps/striplight_red2vert.blend.jpg"
+}
+
+Glow
+{
+	Flats
+	{
+		LAVAHELL
+		//POOL3D_1
+		PROTOLAV
+		PJSLIME2
+		WHITE
+	}
+	
+	Walls
+	{
+		LAVAHELL
+		//POOL3D_1
+		PROTOLAV
+		PJSLIME2
+		WHITE
+	}
+}
+
+brightmap texture "MD3/SlashSitting/slashSitting.png"
+{
+  map "BrightMaps/slashSitting_g.png"
+}

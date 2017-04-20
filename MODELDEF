@@ -1,0 +1,353 @@
+//Models for VGPINV08 Decorations
+Model VGPINV08_RangerStatue
+{ 
+   Path "MD3/Statues"
+   SKIN 0 "ranger_statue.png"
+   MODEL 0 "ranger_statue.md3"
+   Scale 4.0 4.0 4.0
+   
+   FrameIndex NADA A 0 0
+}
+
+Model VGPINV08_SargeStatue
+{ 
+   Path "MD3/Statues"
+   SKIN 0 "sarge_statue.jpg"
+   MODEL 0 "sarge_statue.md3"
+   Scale 4.0 4.0 4.0
+   
+   FrameIndex NADA A 0 0
+}
+
+Model VGPINV08_SlashStatue
+{ 
+   Path "MD3/Statues"
+   SKIN 0 "slash_statue.png"
+   MODEL 0 "slash_statue.md3"
+   Scale 4.0 4.0 4.0
+   
+   FrameIndex NADA A 0 0
+}
+
+Model VGPINV08_VisorHeadlessStatue
+{ 
+   Path "MD3/Statues"
+   SKIN 0 "visor_statue.tga"
+   MODEL 0 "visor_headless.md3"
+   Scale 4.0 4.0 4.0
+   
+   FrameIndex NADA A 0 0
+}
+
+Model VGPINV08_VisorStatueHead
+{ 
+   Path "MD3/Statues"
+   SKIN 0 "visor_statue.tga"
+   MODEL 0 "visors_head.md3"
+   Scale 4.0 4.0 4.0
+   
+   FrameIndex NADA A 0 0
+}
+
+Model VGPINV08_XaeroStatue
+{ 
+   Path "MD3/Statues"
+   SKIN 0 "xaero_statue.png"
+   MODEL 0 "xaero_statue.md3"
+   Scale 2.0 2.0 2.0
+   
+   FrameIndex NADA A 0 0
+}
+
+Model VGPINV08_Teleporter
+{
+   Path "MD3/Teleporter"
+   SKIN 0 "teleporter_base.png"
+   MODEL 0 "teleporter_base.md3"
+   Scale 2.0 2.0 2.0
+   
+   FrameIndex NADA A 0 0
+}
+
+Model TeleporterGreaterSphere
+{
+   Path "MD3/Teleporter"
+   SKIN 0 "teleporter_sphere.jpg"
+   MODEL 0 "teleporter_sphere.md3"
+   Scale 2.0 2.0 2.0
+   ROTATING
+   Rotation-Speed 1
+   NOINTERPOLATION
+   
+   FrameIndex NADA A 0 0
+}
+
+Model TeleporterSmallerSphere
+{
+   Path "MD3/Teleporter"
+   SKIN 0 "teleporter_sphere2.jpg"
+   MODEL 0 "teleporter_sphere.md3"
+   Scale 1.4 1.4 1.4
+   ZOffset 16
+   ROTATING
+   Rotation-Speed -2
+   NOINTERPOLATION
+   
+   FrameIndex NADA A 0 0
+}
+
+Model VGPINV08_SpawnerRed
+{ 
+  Path "MD3\Spawner"
+  Model 0 "spawner.md3"
+  Skin 0 "spawner.tga"
+  Scale 0.5 0.5 0.5
+  ZOffset 2
+
+   FrameIndex NADA A 0 0
+}
+
+Model SpawnerRedGlow
+{ 
+   Path "MD3\Spawner"
+   Model 0 "spawner.md3"
+   Skin 0 "el_basefx2_red.png"
+   ZOffset 2
+   NOINTERPOLATION
+   Scale 0.5 0.5 0.5
+
+   FrameIndex NADA A 0 0
+}
+
+Model SpawnerRedRota
+{ 
+   Path "MD3\Spawner"
+   Model 0 "spawner.md3"
+   Skin 0 "el_rota_red.png"
+   ROTATING
+   NOINTERPOLATION
+   Rotation-Speed 4
+   Scale 0.5 0.5 0.5
+
+   FrameIndex NADA A 0 0
+}
+
+Model VGPINV08_SpawnerYellow
+{ 
+  Path "MD3\Spawner"
+  Model 0 "spawner.md3"
+  Skin 0 "spawner.tga"
+  Scale 0.5 0.5 0.5
+  ZOffset 2
+
+   FrameIndex NADA A 0 0
+}
+
+Model SpawnerYellowGlow
+{ 
+   Path "MD3\Spawner"
+   Model 0 "spawner.md3"
+   Skin 0 "el_basefx2_yellow.png"
+   ZOffset 2
+   NOINTERPOLATION
+   Scale 0.5 0.5 0.5
+
+   FrameIndex NADA A 0 0
+}
+
+Model SpawnerYellowRota
+{ 
+   Path "MD3\Spawner"
+   Model 0 "spawner.md3"
+   Skin 0 "el_rota_yellow.png"
+   ROTATING
+   NOINTERPOLATION
+   Rotation-Speed 4
+   Scale 0.5 0.5 0.5
+   
+
+   FrameIndex NADA A 0 0
+}
+
+Model RailVerticalYellow
+{ 
+   Path "MD3\Rail"
+   Model 0 "RailVetical.md3"
+   Skin 0 "railcore_yellow.png"
+   Scale 1.0 1.0 1.0
+
+   FrameIndex NADA A 0 0
+}
+
+Model RailVerticalRed
+{ 
+   Path "MD3\Rail"
+   Model 0 "RailVetical.md3"
+   Skin 0 "railcore_red.png"
+   Scale 1.0 1.0 1.0
+
+   FrameIndex NADA A 0 0
+}
+
+Model RailVerticalGreen
+{ 
+   Path "MD3\Rail"
+   Model 0 "RailVetical.md3"
+   Skin 0 "railcore_green.png"
+   Scale 1.0 1.0 1.0
+
+   FrameIndex NADA A 0 0
+}
+
+Model RailVerticalBlue
+{ 
+   Path "MD3\Rail"
+   Model 0 "RailVetical.md3"
+   Skin 0 "railcore_blue.png"
+   Scale 1.0 1.0 1.0
+
+   FrameIndex NADA A 0 0
+}
+
+Model RailVerticalWhite
+{ 
+   Path "MD3\Rail"
+   Model 0 "RailVetical.md3"
+   Skin 0 "railcore_white.png"
+   Scale 1.0 1.0 1.0
+
+   FrameIndex NADA A 0 0
+}
+
+Model FloorLampRed
+{ 
+   Path "MD3\LightSources"
+   Model 0 "floorlamp.md3"
+   Skin 0 "floorlamp.tga"
+   Scale 2.0 2.0 2.0
+
+   FrameIndex NADA A 0 0
+}
+
+Model SpotLightFloor
+{ 
+   Path "MD3\LightSources"
+   Model 0 "spotlight_floor.md3"
+   Skin 0 "spotlight.png"
+   Scale 1.0 1.0 1.0
+
+   FrameIndex NADA A 0 0
+}
+
+Model SpotLightCeiling
+{ 
+   Path "MD3\LightSources"
+   Model 0 "spotlight_ceiling.md3"
+   Skin 0 "spotlight.png"
+   Scale 1.0 1.0 1.0
+
+   FrameIndex NADA A 0 0
+}
+
+Model EagleBanner
+{ 
+   Path "MD3\Banner"
+   Model 0 "eagle_banner_strgg.md3"
+   Skin 0 "eagle_banner.png"
+   Scale 1.0 1.0 1.0
+
+   FrameIndex NADA A 0 0
+}
+
+Model Wave8Shield
+{ 
+   Path "MD3\Shield"
+   Model 0 "shield.md3"
+   Skin 0 "red.jpg"
+   Scale 1.0 1.0 1.0
+   NOINTERPOLATION
+
+   FrameIndex SHRD A 0 1
+   FrameIndex SHRD B 0 1
+}
+
+Model Wave8Shield
+{ 
+   Path "MD3\Shield"
+   Model 0 "shield.md3"
+   Skin 0 "orange.jpg"
+   Scale 1.0 1.0 1.0
+   NOINTERPOLATION
+
+   FrameIndex SHOR A 0 1
+}
+
+Model Wave8Shield
+{ 
+   Path "MD3\Shield"
+   Model 0 "shield.md3"
+   Skin 0 "yellow.jpg"
+   Scale 1.0 1.0 1.0
+   NOINTERPOLATION
+
+   FrameIndex SHYL A 0 1
+}
+
+Model Wave8Shield
+{ 
+   Path "MD3\Shield"
+   Model 0 "shield.md3"
+   Skin 0 "green.jpg"
+   Scale 1.0 1.0 1.0
+   NOINTERPOLATION
+
+   FrameIndex SHGR A 0 1
+}
+
+Model Wave8Shield
+{ 
+   Path "MD3\Shield"
+   Model 0 "shield.md3"
+   Skin 0 "cyan.jpg"
+   Scale 1.0 1.0 1.0
+   NOINTERPOLATION
+
+   FrameIndex SHCY A 0 1
+}
+
+Model Wave8Shield
+{ 
+   Path "MD3\Shield"
+   Model 0 "shield.md3"
+   Skin 0 "blue.jpg"
+   Scale 1.0 1.0 1.0
+   NOINTERPOLATION
+
+   FrameIndex SHBL A 0 1
+}
+
+Model Wave8Shield
+{ 
+   Path "MD3\Shield"
+   Model 0 "shield.md3"
+   Skin 0 "purple.jpg"
+   Scale 1.0 1.0 1.0
+   NOINTERPOLATION
+
+   FrameIndex NADA A 0 0
+   FrameIndex NADA B 0 1
+   
+   FrameIndex SHPR A 0 1
+}
+
+Model SlashSitting
+{
+	Path "MD3/SlashSitting"
+	SKIN 0 "redfx2.png"
+	Model 0 "slashSitting.md3"
+	SKIN 1 "slashSitting.png"
+	Model 1 "slashSitting.md3"
+	Scale 1.3 1.3 1.3
+	
+	FrameIndex NADA A 0 0
+}

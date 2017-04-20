@@ -1,0 +1,171 @@
+//A shield that spawns around switch on last wave of VGPINV08
+
+actor Wave8Shield 27032
+{
+	//$Category VGPINV08 Source
+	//$Sprite SHPRB0
+	//$Title "Defensive Shield"
+	Radius 160
+	Height 160
+	RenderStyle Add
+	Speed 0
+    Alpha 0.5
+    Mass 0x7FFFFFFF
+	Health 10500
+	Monster
+	+SOLID
+	+SHOOTABLE
+	+ISMONSTER
+	+TELESTOMP
+	+REFLECTIVE
+	BloodType "ShieldHit"
+	Obituary "%o underestimated the power of Emergency shields"
+	DamageFactor "ShieldDamage", 0.0
+	DamageFactor "Fire", 0.5
+	States
+	{
+		Spawn:
+			NADA A 0 BRIGHT
+			NADA A 15 BRIGHT A_PlaySound("GEV/SpawnShield")
+			NADA B 35 BRIGHT
+			NADA B 35 BRIGHT
+			GoTo PurpleShield
+		PurpleShield:
+			TNT1 A 0 A_JumpIfHealthLower (9000, "BlueShield")
+			SHPR A 0 A_SpawnItem ("DamagePurple")
+			SHPR A 1 BRIGHT
+			Loop
+		BlueShield:
+			TNT1 A 0 A_JumpIfHealthLower (7500, "CyanShield")
+			SHBL A 0 A_SpawnItem ("DamageBlue")
+			SHBL A 1 BRIGHT
+			Loop
+		CyanShield:
+			TNT1 A 0 A_JumpIfHealthLower (6000, "GreenShield")
+			SHCY A 0 A_SpawnItem ("DamageCyan")
+			SHCY A 1 BRIGHT
+			Loop
+		GreenShield:
+			TNT1 A 0 A_JumpIfHealthLower (4500, "YellowShield")
+			SHGR A 0 A_SpawnItem ("DamageGreen")
+			SHGR A 1 BRIGHT
+			Loop
+		YellowShield:
+			TNT1 A 0 A_JumpIfHealthLower (3000, "OrangeShield")
+			SHYL A 0 A_SpawnItem ("DamageYellow")
+			SHYL A 1 BRIGHT
+			Loop
+		OrangeShield:
+			TNT1 A 0 A_JumpIfHealthLower (1500, "RedShield")
+			SHOR A 0 A_SpawnItem ("DamageOrange")
+			SHOR A 1 BRIGHT
+			Loop
+		RedShield:
+			SHRD A 0 A_SpawnItem ("DamageRed")
+			SHRD A 1 BRIGHT
+			Loop
+		Death:
+			SHRD B 0 A_PlaySoundEx("GEV/ShieldStop",SoundSlot6,0)
+			SHRD B 1 bright A_SetTranslucent(1.0,1)
+			SHRD BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB 1 bright A_FadeOut(0.08)
+			stop
+	}
+}
+
+Actor DamageRed
+{
+	Radius 320
+	Height 320
+	DamageType "ShieldDamage"
+	States
+	{
+		Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Explode (9,320,0,false,320)
+		Stop
+	}
+}
+
+Actor DamageOrange
+{
+	Radius 288
+	Height 288
+	DamageType "ShieldDamage"
+	States
+	{
+		Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Explode (8,288,0,false,288)
+		Stop
+	}
+}
+
+Actor DamageYellow
+{
+	Radius 256
+	Height 256
+	DamageType "ShieldDamage"
+	States
+	{
+		Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Explode (7,256,0,false,256)
+		Stop
+	}
+}
+
+Actor DamageGreen
+{
+	Radius 224
+	Height 224
+	DamageType "ShieldDamage"
+	States
+	{
+		Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Explode (6,224,0,false,224)
+		Stop
+	}
+}
+
+Actor DamageCyan
+{
+	Radius 208
+	Height 208
+	DamageType "ShieldDamage"
+	States
+	{
+		Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Explode (5,208,0,false,208)
+		Stop
+	}
+}
+
+Actor DamageBlue
+{
+	Radius 192
+	Height 192
+	DamageType "ShieldDamage"
+	States
+	{
+		Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Explode (4,192,0,false,192)
+		Stop
+	}
+}
+
+Actor DamagePurple
+{
+	Radius 176
+	Height 176
+	DamageType "ShieldDamage"
+	States
+	{
+		Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_Explode (3,176,0,false,176)
+		Stop
+	}
+}

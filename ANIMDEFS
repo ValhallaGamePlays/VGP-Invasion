@@ -420,3 +420,9 @@ pic 97 tics 2
 pic 98 tics 2
 pic 99 tics 2
 pic 100 tics 2	
+
+//VGPINV08 AnimDefs for lava and water
+WARP flat LAVAHELL
+WARP2 flat POOL3D_1
+WARP flat PROTOLAV
+WARP flat PJSLIME2

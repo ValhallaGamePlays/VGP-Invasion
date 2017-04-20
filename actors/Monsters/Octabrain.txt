@@ -1,0 +1,78 @@
+//Scourge
+//Origin: Armageddon Invasion mappack
+
+ACTOR Octabrain 27036
+{
+	MONSTER
+	RADIUS 20
+	MASS 700
+	HEIGHT 60
+	HEALTH 170
+	SPEED 14
+	PAINCHANCE 100
+	Scale 0.8
+	Meleedamage 5
+	Obituary "%o was killed by an Octabrain."
+	Hitobituary "%o was eaten alive by an Octabrain."
+	+FLOAT
+  	+NOGRAVITY
+	seesound "OCTOSIT"
+  	painsound "OCTOPAIN"
+  	deathsound "OCTODIE" 
+  	activesound "OCTOACT"
+  	Meleesound "OCTOMELE"
+
+	States
+	{
+	Spawn:
+		OCTA A 4 A_Look
+		Loop
+	See:
+		OCTA AABBCC 4 A_Chase
+		Loop
+	Missile:
+ 		OCTA DDDD 5 A_Facetarget
+ 		OCTA D 0 A_PLAYSOUND ("OCTOATK")
+ 		OCTA E 12 Bright A_CustomMissile("OCTOProjectile", 20, 0, 0)
+ 		goto see
+ 	Melee:
+		OCTA CB 10 A_facetarget
+		OCTA A 10 A_Meleeattack
+		Goto see
+	Pain:
+		OCTA D 4 A_PAIN
+		Goto Missile
+	Death:
+		OCTA F 6 A_Scream
+		OCTA GHI 10
+		OCTA J 10 A_Noblocking
+		OCTA K -1 A_SetFloorClip
+		Stop
+	}
+}
+
+ACTOR OCTOProjectile
+{
+	radius 18
+	height 10
+	speed 12
+	damage 5
+	Scale 0.6
+	Projectile
+	States
+	{
+	Spawn:
+		
+		OCFX ABCDEFGHIJKLMNOPQR 4 bright
+		Goto Death
+
+	Death:
+		OCFX ST 4 bright 
+		Stop
+	}
+}
+
+actor OctabrainSpot : CustomMonsterInvasionSpot 27037
+{
+	DropItem Octabrain
+}

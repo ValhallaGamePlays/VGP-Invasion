@@ -1,0 +1,295 @@
+//Scourge
+//Origin: Armageddon Invasion mappack
+
+actor Scourge 27034
+{
+	+BOSS
+	health 10000
+	radius 90
+	height 180
+	mass 12000
+	speed 25
+	scale 2.0
+	damagefactor "fire", 0
+	damagefactor "ice", 2.0
+	seesound "scourge/sight"
+	painsound "scourge/pain"
+	deathsound "scourge/death"
+	activesound "scourge/active"
+	Obituary "%o was ripped apart by a Scourge."
+	bloodcolor green
+	MONSTER
+	+FLOORCLIP
+	+QUICKTORETALIATE
+	+MISSILEEVENMORE
+	+NORADIUSDMG
+	states
+	{
+		Spawn:
+			SCAR AB 10 A_Look
+			loop
+		See:
+			SCAR AA 3 A_Chase
+			SCAR BB 3 A_Chase
+			SCAR A 0 A_PlaySound ("scourge/walk")
+			SCAR AA 3 A_Chase
+			SCAR CC 3 A_Chase
+			SCAR A 0 A_PlaySound ("scourge/walk") 
+			loop
+		Missile:
+			TNT1 A 0 A_FaceTarget
+			TNT1 A 0 A_Jump (256,"Railgun","Flamethrower","Machinegun","Rocket")
+			Railgun:
+			SCAR A 10 A_FaceTarget
+			SCAR D 0 A_PlaySound("scourge/railguncharge")
+			SCAR D 25 A_FaceTarget
+			SCAR E 10 A_FaceTarget
+			SCAR E 0 A_PlaySound("scourge/railgun")
+			SCAR E 0 A_CustomRailgun (130,40,orange,orange,1,1)
+			SCAR E 0 A_CustomRailgun (130,-40,orange,orange,1,1)
+			SCAR E 10 A_FaceTarget
+			Goto See
+		Flamethrower:
+			SCAR A 10 A_FaceTarget
+			SCAR D 1 A_FaceTarget
+			SCAR D 0 A_CustomMissile("FTFire2",120,40,0,0)
+			SCAR D 0 A_CustomMissile("FTFire2",120,-40,0,0)
+			SCAR D 1 A_FaceTarget
+			SCAR D 0 A_CustomMissile("FTFire2",120,40,0,0)
+			SCAR D 0 A_CustomMissile("FTFire2",120,-40,0,0)
+			SCAR D 1 A_FaceTarget
+			SCAR D 0 A_CustomMissile("FTFire2",120,40,0,0)
+			SCAR D 0 A_CustomMissile("FTFire2",120,-40,0,0)
+			SCAR D 1 A_FaceTarget
+			SCAR D 0 A_CustomMissile("FTFire2",120,40,0,0)
+			SCAR D 0 A_CustomMissile("FTFire2",120,-40,0,0)
+			SCAR D 1 A_FaceTarget
+			SCAR D 0 A_CustomMissile("FTFire2",120,40,0,0)
+			SCAR D 0 A_CustomMissile("FTFire2",120,-40,0,0)
+			SCAR D 1 A_FaceTarget
+			SCAR D 0 A_CustomMissile("FTFire2",120,40,0,0)
+			SCAR D 0 A_CustomMissile("FTFire2",120,-40,0,0)
+			SCAR D 1 A_FaceTarget
+			SCAR D 0 A_CustomMissile("FTFire2",120,40,0,0)
+			SCAR D 0 A_CustomMissile("FTFire2",120,-40,0,0)
+			SCAR D 1 A_FaceTarget
+			SCAR D 0 A_CustomMissile("FTFire2",120,40,0,0)
+			SCAR D 0 A_CustomMissile("FTFire2",120,-40,0,0)
+			SCAR D 1 A_FaceTarget
+			SCAR D 0 A_CustomMissile("FTFire2",120,40,0,0)
+			SCAR D 0 A_CustomMissile("FTFire2",120,-40,0,0)
+			SCAR D 1 A_FaceTarget
+			SCAR D 0 A_CustomMissile("FTFire2",120,40,0,0)
+			SCAR D 0 A_CustomMissile("FTFire2",120,-40,0,0)
+			SCAR D 1 A_FaceTarget
+			SCAR D 0 A_CustomMissile("FTFire2",120,40,0,0)
+			SCAR D 0 A_CustomMissile("FTFire2",120,-40,0,0)
+			SCAR D 1 A_FaceTarget
+			SCAR D 0 A_CustomMissile("FTFire2",120,40,0,0)
+			SCAR D 0 A_CustomMissile("FTFire2",120,-40,0,0)
+			SCAR D 1 A_FaceTarget
+			SCAR D 0 A_CustomMissile("FTFire2",120,40,0,0)
+			SCAR D 0 A_CustomMissile("FTFire2",120,-40,0,0)
+			SCAR D 1 A_FaceTarget
+			SCAR D 0 A_CustomMissile("FTFire2",120,40,0,0)
+			SCAR D 0 A_CustomMissile("FTFire2",120,-40,0,0)
+			SCAR D 1 A_FaceTarget
+			SCAR D 0 A_CustomMissile("FTFire2",120,40,0,0)
+			SCAR D 0 A_CustomMissile("FTFire2",120,-40,0,0)
+			SCAR D 1 A_FaceTarget
+			SCAR D 0 A_CustomMissile("FTFire2",120,40,0,0)
+			SCAR D 0 A_CustomMissile("FTFire2",120,-40,0,0)
+			SCAR D 1 A_FaceTarget
+			SCAR D 0 A_CustomMissile("FTFire2",120,40,0,0)
+			SCAR D 0 A_CustomMissile("FTFire2",120,-40,0,0)
+			SCAR D 1 A_FaceTarget
+			SCAR D 0 A_CustomMissile("FTFire2",120,40,0,0)
+			SCAR D 0 A_CustomMissile("FTFire2",120,-40,0,0)
+			SCAR D 1 A_FaceTarget
+			SCAR D 0 A_CustomMissile("FTFire2",120,40,0,0)
+			SCAR D 0 A_CustomMissile("FTFire2",120,-40,0,0)
+			SCAR D 1 A_FaceTarget
+			SCAR D 0 A_CustomMissile("FTFire2",120,40,0,0)
+			SCAR D 0 A_CustomMissile("FTFire2",120,-40,0,0)
+			SCAR D 1 A_FaceTarget
+			SCAR D 0 A_CustomMissile("FTFire2",120,40,0,0)
+			SCAR D 0 A_CustomMissile("FTFire2",120,-40,0,0)
+			SCAR D 1 A_FaceTarget
+			SCAR D 0 A_CustomMissile("FTFire2",120,40,0,0)
+			SCAR D 0 A_CustomMissile("FTFire2",120,-40,0,0)
+			SCAR D 1 A_FaceTarget
+			SCAR D 0 A_CustomMissile("FTFire2",120,40,0,0)
+			SCAR D 0 A_CustomMissile("FTFire2",120,-40,0,0)
+			SCAR D 1 A_FaceTarget
+			SCAR D 0 A_CustomMissile("FTFire2",120,40,0,0)
+			SCAR D 0 A_CustomMissile("FTFire2",120,-40,0,0)
+			SCAR D 1 A_FaceTarget
+			SCAR D 0 A_CustomMissile("FTFire2",120,40,0,0)
+			SCAR D 0 A_CustomMissile("FTFire2",120,-40,0,0)
+			SCAR D 1 A_FaceTarget
+			SCAR D 0 A_CustomMissile("FTFire2",120,40,0,0)
+			SCAR D 0 A_CustomMissile("FTFire2",120,-40,0,0)
+			SCAR D 1 A_FaceTarget
+			SCAR D 0 A_CustomMissile("FTFire2",120,40,0,0)
+			SCAR D 0 A_CustomMissile("FTFire2",120,-40,0,0)
+			SCAR D 1 A_FaceTarget
+			SCAR D 0 A_CustomMissile("FTFire2",120,40,0,0)
+			SCAR D 0 A_CustomMissile("FTFire2",120,-40,0,0)
+			SCAR D 1 A_FaceTarget
+			SCAR D 0 A_CustomMissile("FTFire2",120,40,0,0)
+			SCAR D 0 A_CustomMissile("FTFire2",120,-40,0,0)
+			Goto See
+		Machinegun:
+			SCAR A 3 A_Facetarget
+			SCAR E 2 Bright A_CustomBulletAttack(10, 4, 4, 1, "ScourgePuff")
+			SCAR E 0 Bright A_Playsound("scourge/machinegun")
+			SCAR A 1 A_SpidRefire
+			Goto MachineGun+1
+		Rocket:
+			SCAR A 10 A_FaceTarget
+			SCAR D 0 A_CustomMissile("ScourgeRocket",120,40,0,0)
+			SCAR D 10 A_CustomMissile("ScourgeRocket",120,-40,0,0)
+			SCAR A 10 A_FaceTarget
+			SCAR D 0 A_CustomMissile("ScourgeRocket",120,40,0,0)
+			SCAR D 10 A_CustomMissile("ScourgeRocket",120,-40,0,0)
+			SCAR A 10 A_FaceTarget
+			SCAR D 0 A_CustomMissile("ScourgeRocket",120,40,0,0)
+			SCAR D 10 A_CustomMissile("ScourgeRocket",120,-40,0,0)
+			Goto See
+		Death:
+			SCAR G 10 A_ScreamAndUnblock
+			SCAR HIJKL 4
+			SCAR M -1 A_FALL
+			Stop
+	}
+}
+
+ACTOR FTFire2
+{
+   Radius 2
+   Height 4
+   Speed 35
+   Damage 1
+   PROJECTILE
+   +RIPPER
+   RENDERSTYLE ADD
+   DamageType Fire
+   ALPHA 0.67
+   Scale 0.67
+   SeeSound "weapons/flamer"
+   DeathSound "weapons/scorch"
+   DONTHURTSHOOTER
+   States
+   {
+   Spawn:
+      NULL A 2 Bright
+      FRFX ABCD 2 Bright A_Explode(8,8)
+      FRFX D 0 Bright A_Lowgravity
+      FRFX EFG 2 Bright A_Explode(8,16)
+      FRFX HIJ 2 Bright A_Explode(8,32)
+      FRFX KLM 2 Bright A_Explode(8,64)
+      FRFX NO 2 Bright
+      stop
+   Death:
+      FRFX HIJ 2 Bright A_Explode(8,32)
+      FRFX J 0 A_CustomMissile ("DropFire2",0,0,0,0)
+      FRFX KLM 2 Bright A_Explode(8,64)
+      FRFX NO 2 Bright
+      stop
+   }
+}
+
+ACTOR DropFire2
+{
+   Radius 8
+   Height 40
+   PROJECTILE
+   RENDERSTYLE ADD
+   DamageType Fire
+   ALPHA 0.90
+   DONTHURTSHOOTER
+   -NOGRAVITY
+   +LOWGRAVITY
+   +NOEXPLODEFLOOR
+   States
+   {
+   Spawn:
+      FLME A 1 Bright A_Playsound("weapons/onfire")
+      FLME A 1 Bright A_Explode(8,16)
+      FLME BCDEFGHIJKLMN 2 Bright A_Explode(8,16)
+      FLME A 1 Bright A_Playsound("weapons/onfire")
+      FLME A 1 Bright A_Explode(8,32)
+      FLME BCDEFGHIJKLMN 2 Bright A_Explode(8,16)
+      FLME A 1 Bright A_Playsound("weapons/onfire")
+      FLME A 1 Bright A_Explode(8,32)
+      FLME BCDEFGHIJKLMN 2 Bright A_Explode(8,16)
+      FLME A 1 Bright A_Playsound("weapons/onfire")
+      FLME A 1 Bright A_Explode(8,32)
+      FLME BCDEFGHIJKLMN 2 Bright A_Explode(8,16)
+      FLME A 1 Bright A_Playsound("weapons/onfire")
+      FLME A 1 Bright A_Explode(8,32)
+      FLME BCDEFGHIJKLMN 2 Bright A_Explode(8,16)
+      FLME A 0 A_Jump(192,1)
+      loop
+      NULL A 0
+      goto death
+   Death:
+      NULL A 1 Bright
+      stop
+   }
+}
+
+ACTOR ScourgePuff
+{
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+ALLOWPARTICLES
+	+PUFFONACTORS
+	+RANDOMIZE
+	Damagetype Fire
+	scale 0.75
+	RenderStyle Add
+	Alpha 0.90
+	Mass 5
+	States
+	{
+	Spawn:
+		SPUF A 2 Bright
+		SPUF B 2
+	Melee:
+		SPUF CD 2 A_Explode (5,10,1)
+		Stop
+	}
+}
+
+actor ScourgeRocket
+{
+	radius 8
+	height 8
+	damage 5
+	speed 22
+	scale 0.75
+	seesound "scourge/rocket"
+	deathsound "scourge/explode"
+	PROJECTILE
+	+SEEKERMISSILE
+	+STRIFEDAMAGE
+	+ROCKETTRAIL
+	states
+	{
+		Spawn:
+			QROK A 1 bright A_Tracer
+			loop
+		Death:
+			QROK B 0 A_SetTranslucent (0.90,1)
+			QROK B 5 bright A_Explode
+			QROK C 5 bright A_SpawnItem("DropFire2")
+			QROK DEF 5 bright
+			stop
+	}
+}
+
+actor ScourgeSpot : CustomMonsterInvasionSpot 27035
+{
+	DropItem Scourge
+}

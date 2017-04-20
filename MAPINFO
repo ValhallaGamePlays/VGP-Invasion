@@ -62,6 +62,14 @@ sky1  "SKY1"
 music "V_MUS07"
 ExitPic "INTERPIC"
 
+map VGPINV08 "A Night at the Frag Factory"
+ 
+next "VGPINV09"
+secretnext "VGPINV13"
+sky1 "GRIMNITE" //0.1
+music "V_MUS08"
+ExitPic "INTERPIC"
+
 map VGPINV09 "The VGP Arena"
  
 next "VGPINV10"
@@ -88,7 +96,7 @@ ExitPic "INTERPIC"
 
 map VGPINV12 "Octagonal Fun"
 
-next "VGPINV12"
+next "EndGameC"
 secretnext "VGPINV13"
 sky1 "ANSKY_01"
 music "V_MUS12"

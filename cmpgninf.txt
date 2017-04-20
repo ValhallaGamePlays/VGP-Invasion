@@ -43,7 +43,7 @@ wavelimit = 6
 {
 mapname = VGPINV08
 gamemode = invasion
-wavelimit = 6
+wavelimit = 8
 }
 
 {

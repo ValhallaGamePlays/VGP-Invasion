@@ -39,7 +39,7 @@ States
 	UNMB E 5 BRIGHT LIGHT(UNMNBALLL) A_CustomMissile("FatMace", 48, -32, random(-4,7))
 	UNMB CD 5 A_FaceTarget
 	Goto See
-	/*Missile2:
+	Missile2:
 	UNMB E 0 Bright A_PlaySound("UNMNRAIL")
 	UNMB E 5 BRIGHT LIGHT(UNMNRALR) A_CustomRailgun(random(10,20), 32, black, red, RGF_NOPIERCING, 1, 2, none, 0, 0, 1000, random(8,16), 8.0, 2.0, "FatRail", 0)
 	UNMB E 5 BRIGHT LIGHT(UNMNRALL) A_CustomRailgun(random(10,20), -32, red, black, RGF_NOPIERCING, 1, 2, none, 0, 0, 1000, random(8,16), 8.0, 2.0, "FatRail", 0)
@@ -52,7 +52,7 @@ States
 	UNMB E 5 BRIGHT LIGHT(UNMNRALR) A_CustomRailgun(random(10,20), 32, black, red, RGF_NOPIERCING, 1, 2, none, 0, 0, 1000, random(8,16), 8.0, 2.0, "FatRail", 0)
 	UNMB E 5 BRIGHT LIGHT(UNMNRALL) A_CustomRailgun(random(10,20), -32, red, black, RGF_NOPIERCING, 1, 2, none, 0, 0, 1000, random(8,16), 8.0, 2.0, "FatRail", 0)
 	UNMB CD 5 A_FaceTarget
-	Goto See*/
+	Goto See
 	Pain:
 	UNMB F 4
 	UNMB F 4 A_Pain

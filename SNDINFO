@@ -116,3 +116,151 @@ monster/brudth dsbrudth
 monster/bruwlk dsbruwlk
 monster/brufir dsbrufir
 weapons/hellex dshellex
+
+////VGPINV08 Sound Definitions
+//Ambient
+ForceFieldSmall/Active	"sounds/ambient/forcefield_small.ogg"
+ForceFieldSmall/Down	"sounds/ambient/forcefield_small_down.ogg"
+$volume ForceFieldSmall/Down 0.3
+ForceFieldLarge/Active	"sounds/ambient/forcefield_large.wav"
+ForceFieldLarge/Down	"sounds/ambient/forcefield_large_down.ogg"
+$volume ForceFieldLarge/Down 0.7
+Teleporter/Drone1	"sounds/ambient/teledrone1"
+Teleporter/Drone2	"sounds/ambient/teledrone2"
+$random rail/disengage	{rail/disengage1 rail/disengage2}
+rail/disengage1		"sounds/ambient/rail_disengage1.ogg"
+rail/disengage2		"sounds/ambient/rail_disengage2.ogg"
+
+amb/underwater	"sounds/ambient/underwater"
+amb/waterflow	"sounds/ambient/waterflow"
+amb/lava		"sounds/ambient/lava_loop2.wav"
+amb/rail		"sounds/ambient/ambrail.wav"
+amb/fan			"sounds/ambient/fan4.wav"
+amb/machinery1	"sounds/ambient/machinerydrone01.wav"
+amb/machinery2	"sounds/ambient/machinerydrone02.wav"
+amb/bobber		"sounds/ambient/x_bobber.wav"
+amb/waterpipe	"sounds/ambient/pipes_01.ogg"
+amb/lavapipe	"sounds/ambient/lava_pipe.wav"
+amb/waterflow2	"sounds/ambient/water_flowmetal1.wav"
+amb/fountain	"sounds/ambient/smallfountain.wav"
+amb/comp		"sounds/ambient/comp"
+amb/poweroff	"sounds/ambient/poweroff"
+amb/poweron		"sounds/ambient/poweron"
+
+$ambient 1 ForceFieldSmall/Active point continuous 0.3
+$ambient 2 amb/underwater point continuous 0.7
+$ambient 3 amb/waterflow point continuous 0.7
+$ambient 4 amb/lava point continuous 0.2
+$ambient 5 amb/machinery1 point continuous 0.7
+$ambient 6 amb/machinery2 point continuous 0.7
+$ambient 7 amb/bobber point continuous 1.0
+$ambient 8 amb/rail point continuous 0.7
+$ambient 9 amb/waterpipe point continuous 0.7
+$ambient 10 amb/lavapipe point continuous 0.3
+$ambient 11 amb/waterflow2 point continuous 0.7
+$ambient 12 ForceFieldLarge/Active point continuous 0.7
+$ambient 13 amb/fountain point continuous 0.7
+$ambient 14 amb/fan point continuous 0.7
+$ambient 15 amb/comp point continuous 0.7
+
+//Enemies
+//Doom 3 Wraith
+D3Wraith/Sight	3WRTSIGH
+$Random D3Wraith/Idle	{ 3WRTIDL1 3WRTIDL2 3WRTIDL3 3WRTIDL4 }
+3WRTIDL1	3WRTIDL1
+3WRTIDL2	3WRTIDL2
+3WRTIDL3	3WRTIDL3
+3WRTIDL4	3WRTIDL4
+$Random D3Wraith/Active	{ 3WRTACT1 3WRTACT2 }
+3WRTACT1	3WRTACT1
+3WRTACT2	3WRTACT2
+$Random D3Wraith/Attack	{ 3WRTATK1 3WRTATK2 }
+3WRTATK1	3WRTATK1
+3WRTATK2	3WRTATK2
+$Random D3Wraith/Hit	{ 3WRTHIT1 3WRTHIT2 3WRTHIT3 }
+3WRTHIT1	3WRTHIT1
+3WRTHIT2	3WRTHIT2
+3WRTHIT3	3WRTHIT3
+$Random D3Wraith/Pain	{ 3WRTPAI1 3WRTPAI2 3WRTPAI3 }
+3WRTPAI1	3WRTPAI1
+3WRTPAI2	3WRTPAI2
+3WRTPAI3	3WRTPAI3
+$Random D3Wraith/Death	{ 3WRTDEA1 3WRTDEA2 3WRTDEA3 3WRTDEA4 }
+3WRTDEA1	3WRTDEA1
+3WRTDEA2	3WRTDEA2
+3WRTDEA3	3WRTDEA3
+3WRTDEA4	3WRTDEA4
+
+//--- Enemies Based on Quake III characters ---//
+//Q3 Grunt
+q3grunt/sight	GRUSIGHT
+q3grunt/pain100	GRUP100
+q3grunt/pain75	GRUP75
+q3grunt/pain50	GRUP50
+q3grunt/pain25	GRUP25
+q3grunt/death	GRUDTH
+q3grunt/railgun	RAILFX1
+
+//Q3 Major
+major/sight	   	MJRSIGHT
+major/pain100	MJRP100
+major/pain75	MJRPI75
+major/pain50	MJRPI50
+major/pain25	MJRPI25
+major/death		MJRDTH
+major/grenadel	GRENFIR
+$Random major/grenadebounce {ranger/grenadebounce1 ranger/grenadebounce2}
+major/grenadebounce1	GRNDBOU1
+major/grenadebounce2	GRNDBOU2
+major/rockexplo	ROCKLX1A
+
+//Q3Phobos
+phobos/sight	PHBSIGHT
+phobos/pain100	PHBSP100
+phobos/pain75	PHBSP75
+phobos/pain50	PHBSP50
+phobos/pain25	PHBSP25
+$Random phobos/death { phobos/death1 phobos/death2 phobos/death3}
+phobos/death1	PHBSDTH1
+phobos/death2	PHBSDTH2
+phobos/death3	PHBSDTH3
+
+//Q3 Ranger
+ranger/sight	RANSIGHT
+ranger/pain100	RANP100
+ranger/pain75	RANP75
+ranger/pain50	RANP50
+ranger/pain25	RANP25
+$Random ranger/death { ranger/death1 ranger/death2 ranger/death3}
+ranger/death1	RANDTH1
+ranger/death2	RANDTH2
+ranger/death3	RANDTH3
+ranger/LightningStart LGFIRE
+ranger/LightningLoop LGLOOP
+
+//Spark Sounds
+$Random Amb/Spark {Amb/Spark1 Amb/Spark2 Amb/Spark3}
+Amb/Spark1		spark01
+Amb/Spark2		spark02
+Amb/Spark3		spark03
+
+//Scourge
+scourge/rocket scarrckt
+scourge/explode dshellex
+scourge/machinegun enfire
+scourge/railguncharge scarchrg
+scourge/railgun scarrail
+scourge/death scardeth
+scourge/sight scarsigh
+scourge/walk scarwalk
+weapons/flamer dsflamer
+weapons/scorch dsscrch2
+weapons/onfire dsonfire
+
+//Octabrain
+OCTOSIT OCTOSIT
+OCTODIE OCTODIE
+OCTOATK OCTOATK
+OCTOPAIN OCTOPAIN
+OCTOMELE OCTOMELE
+OCTOACT OCTOACT

@@ -37,3 +37,12 @@
 #include "actors/Decorations/bmc.txt" //BMC
 #include "actors/Decorations/bgp.txt"
 #include "actors/Powerups/RegenBall.txt"
+#include "actors/Monsters/D3Wraith.txt"
+#include "actors/Monsters/Q3Grunt.txt"
+#include "actors/Monsters/Q3Ranger.txt"
+#include "actors/Monsters/Q3Major.txt"
+#include "actors/Monsters/Q3Phobos.txt"
+#include "actors/Monsters/Shields.txt"
+#include "actors/Monsters/Scourge.txt"
+#include "actors/Monsters/Octabrain.txt"
+#include "actors/Decorations/inv08dec.txt" //Decorations on VGPINV08

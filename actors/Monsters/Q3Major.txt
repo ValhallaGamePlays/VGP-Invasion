@@ -1,0 +1,143 @@
+//Q3 Major
+//Weapon: Grenade Launcher
+//Behavior is based on this: realm667.com/index.php/en/component/docman/?task=doc_download&gid=807&Itemid=
+
+ACTOR Q3Major 27026
+{
+  //$Category VGPINV08 Source
+  //$Sprite Q2FMA1
+  //$Title "Q3 Major"
+  obituary "%o was shredded by Major's shrapnel"
+  health 200
+  radius 20
+  height 56
+  mass 100
+  speed 12
+  Translation "112:127=64:79"
+  painchance 100
+  seesound "major/sight"
+  deathsound "major/death"
+  AttackSound "major/attack"
+  dropitem "RocketBox" 256
+  MONSTER
+  +FLOORCLIP
+  +NORADIUSDMG
+  +DONTMORPH
+  +MISSILEMORE  
+  states
+  {
+  Spawn:
+    Q2FM AB 10 A_Look
+    loop
+  See:
+    Q2FM AABBCCDD 2 A_Chase
+    Q2FM A 0 A_jump(80,2)
+    loop
+    Q2FM AABBCCDDAABBCCDD 2 A_FastChase
+    Goto See  
+  Missile:
+	Q2FM E 2 A_FaceTarget
+	Q2FM F 0 A_PlaySound("major/grenadel", CHAN_WEAPON)
+	Q2FM F 6 BRIGHT A_CustomMissile("MajorGrenade")
+	Q2FM E 21 A_CPosRefire
+	Loop
+	Q2FM A 0
+	Goto See
+  Pain:
+    Q2FM A 0 A_JumpIfHealthLower (75, "Pain75")
+    Q2FM G 3 A_PlaySound("major/Pain100",5)
+    goto See
+  Pain75:
+    Q2FM A 0 A_JumpIfHealthLower (50, "Pain50")
+    Q2FM G 3 A_PlaySound("major/Pain75",5)
+    goto See
+  Pain50:
+    Q2FM A 0 A_JumpIfHealthLower (25, "Pain25")
+    Q2FM G 3 A_PlaySound("major/Pain50",5)
+    goto See
+  Pain25:
+    Q2FM G 3 A_PlaySound("major/Pain25",5)
+    goto See
+  Death:
+    Q2FM H 5
+    Q2FM I 5 A_Scream
+    Q2FM J 5 A_NoBlocking
+    Q2FM K 5
+    Q2FM LM 5
+    Q2FM N -1
+    stop
+  Xdeath:
+    	Q2FM O 5
+		Q2FM P 5 A_XScream
+		Q2FM Q 5 A_NoBlocking
+		Q2FM RSTUV 5
+		Q2FM W -1
+		stop
+  }
+}
+
+//Major's Projectile
+//Origin: 
+actor MajorGrenade
+{
+PROJECTILE
+BounceType "Doom"
+//+GRENADETRAIL
++CANBOUNCEWATER
+-NOGRAVITY
++EXTREMEDEATH
++FORCERADIUSDMG
+Radius 5
+Height 8
+Speed 18
+Gravity 0.4
+Damage 5
+BounceFactor 0.6
+BounceSound "weapons/grenadebounce"
+Obituary "%o was shredded by Major's shrapnel"
+Scale 0.4
+States
+{
+Spawn:
+	TNT1 A 0
+	TNT1 A 0 ThrustThingZ(0,7,0,1)
+	TNT1 A 0 A_StopSound
+	QGRP KJIHGFEDCBA 3 Bright A_SpawnItemEx("QuakeGrenSmokeTrail",random(0,-3),random(2,-2),random(2,-2),0,0,0.8,0,32)
+	Goto Spawn+3
+Death:
+	TNT1 A 0 A_PlaySound("weapons/rockexplo",0.6)
+	//TNT1 A 0 A_QuakeEx(3,3,0, 15,0,5,"", QF_SCALEDOWN)
+	TNT1 A 0 A_Explode(random(32,64),128,1)
+	TNT1 A 0 A_SpawnItemEx("ExplosionMediumBigSprite",0,0,0,0,0,0,0,32)
+	Stop
+}
+}
+
+Actor QuakeGrenSmokeTrail
+{
++NOINTERACTION
+Scale 0.15
+States
+{
+Spawn:
+	TNT1 A 0
+	TNT1 A 0 A_Jump(210,3,5,7,9)
+	X124 ABCDEFGHIJKLMNOPQR 2 A_FadeOut(0.03)
+	Goto Spawn+2
+}
+}
+Actor QuakeGrenSmokeTrailBig : QuakeGrenSmokeTrail
+{
+	Scale 0.24
+}
+
+actor Q3MajorSpot : CustomMonsterInvasionSpot 27027
+{
+	//$Category VGPINV08 Source
+	//$Arg0 "Start Spawn Number"
+	//$Arg1 "Spawn Delay"
+	//$Arg2 "Round Spawn Delay"
+	//$Arg3 "First Appear Wave"
+	//$Arg4 "Max Spawn"
+	dropitem Q3Major
+}

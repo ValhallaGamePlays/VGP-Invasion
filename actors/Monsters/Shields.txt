@@ -4,31 +4,32 @@ actor Wave8Shield 27032
 {
 	//$Category VGPINV08 Source
 	//$Sprite SHPRB0
-	//$Title "Defensive Shield"
+	//$Title "Emergency Shield"
 	Radius 160
-	Height 160
+	Height 64
 	RenderStyle Add
 	Speed 0
     Alpha 0.5
     Mass 0x7FFFFFFF
 	Health 10500
+	//Scale 0.25
 	Monster
-	+SOLID
 	+SHOOTABLE
 	+ISMONSTER
 	+TELESTOMP
 	+REFLECTIVE
-	BloodType "ShieldHit"
-	Obituary "%o underestimated the power of Emergency shields"
+	BloodType "None"
+	PainSound "shield/reflect"
+	Obituary "%o forgot to stay away from Emergency shields"
 	DamageFactor "ShieldDamage", 0.0
-	DamageFactor "Fire", 0.5
+	DamageFactor "Fire", 0.5 //setting this factor, too, so players wouldn't abuse scourges' firepower
 	States
 	{
 		Spawn:
 			NADA A 0 BRIGHT
-			NADA A 15 BRIGHT A_PlaySound("GEV/SpawnShield")
-			NADA B 35 BRIGHT
-			NADA B 35 BRIGHT
+			NADA A 15 BRIGHT A_PlaySound("shield/spawn")
+			NADA B 35 BRIGHT A_PlaySoundEx ("shield/amb", 7, 1) 
+			NADA B 35 BRIGHT 
 			GoTo PurpleShield
 		PurpleShield:
 			TNT1 A 0 A_JumpIfHealthLower (9000, "BlueShield")
@@ -65,7 +66,7 @@ actor Wave8Shield 27032
 			SHRD A 1 BRIGHT
 			Loop
 		Death:
-			SHRD B 0 A_PlaySoundEx("GEV/ShieldStop",SoundSlot6,0)
+			SHRD B 0 A_PlaySoundEx("shield/death",SoundSlot6,0)
 			SHRD B 1 bright A_SetTranslucent(1.0,1)
 			SHRD BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB 1 bright A_FadeOut(0.08)
 			stop
@@ -75,7 +76,7 @@ actor Wave8Shield 27032
 Actor DamageRed
 {
 	Radius 320
-	Height 320
+	Height 64
 	DamageType "ShieldDamage"
 	States
 	{
@@ -89,7 +90,7 @@ Actor DamageRed
 Actor DamageOrange
 {
 	Radius 288
-	Height 288
+	Height 64
 	DamageType "ShieldDamage"
 	States
 	{
@@ -103,7 +104,7 @@ Actor DamageOrange
 Actor DamageYellow
 {
 	Radius 256
-	Height 256
+	Height 64
 	DamageType "ShieldDamage"
 	States
 	{
@@ -117,7 +118,7 @@ Actor DamageYellow
 Actor DamageGreen
 {
 	Radius 224
-	Height 224
+	Height 64
 	DamageType "ShieldDamage"
 	States
 	{
@@ -131,7 +132,7 @@ Actor DamageGreen
 Actor DamageCyan
 {
 	Radius 208
-	Height 208
+	Height 64
 	DamageType "ShieldDamage"
 	States
 	{
@@ -145,7 +146,7 @@ Actor DamageCyan
 Actor DamageBlue
 {
 	Radius 192
-	Height 192
+	Height 64
 	DamageType "ShieldDamage"
 	States
 	{
@@ -159,7 +160,7 @@ Actor DamageBlue
 Actor DamagePurple
 {
 	Radius 176
-	Height 176
+	Height 64
 	DamageType "ShieldDamage"
 	States
 	{

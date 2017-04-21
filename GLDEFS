@@ -5703,49 +5703,6 @@ Object SparkFlare_Y4 { Frame SPKY { Light YellowSparkFlare } }
 Object SparkFlare_Y5 { Frame SPKY { Light YellowSparkFlare } }
 Object SparkFlare_Y6 { Frame SPKY { Light YellowSparkFlare } }
 
-
-//"Wires"
-brightmap texture STRIPLIB
-{
-  map "Brightmaps/striplight_blue.blend.jpg"
-}
-
-brightmap texture STRIPLR2
-{
-  map "Brightmaps/striplight_red2.blend.jpg"
-}
-
-brightmap texture STRIPLBV
-{
-  map "Brightmaps/striplight_bluevert.blend.jpg"
-}
-
-brightmap texture STRIPLRV 
-{
-  map "Brightmaps/striplight_red2vert.blend.jpg"
-}
-
-Glow
-{
-	Flats
-	{
-		LAVAHELL
-		//POOL3D_1
-		PROTOLAV
-		PJSLIME2
-		WHITE
-	}
-	
-	Walls
-	{
-		LAVAHELL
-		//POOL3D_1
-		PROTOLAV
-		PJSLIME2
-		WHITE
-	}
-}
-
 brightmap texture "MD3/SlashSitting/slashSitting.png"
 {
   map "BrightMaps/slashSitting_g.png"

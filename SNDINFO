@@ -264,3 +264,330 @@ OCTOATK OCTOATK
 OCTOPAIN OCTOPAIN
 OCTOMELE OCTOMELE
 OCTOACT OCTOACT
+
+//Shields
+shield/amb	SHLDAMB
+shield/spawn	SHLDSPWN
+$random shield/reflect {reflect1 reflect2 reflect3}
+reflect1	reflect1
+reflect2	reflect2
+reflect3	reflect3
+shield/death	SHLDDETH
+
+//Drone sounds
+//missing:     SeeSound "drone/see"
+//            ActiveSound "drone/idle"
+
+drone/die    DRONDIE
+Drone/Fire    DRONFIRE
+
+$random drone/pain { dronepain01 dronepain02 dronepain03 }
+dronepain01    DRONPAN1
+dronepain02    DRONPAN2
+dronepain03    DRONPAN3
+
+//Wicked sounds
+
+monster/wiksit    DSWIKSIT
+monster/wikpai    DSWIKPAI
+monster/wikdth    DSWIKDTH
+monster/wikatk    DSWIKATK
+
+$random monster/wikact { wikact01 wikact02 }
+wikact01    DSWIKAC1
+wikact02    DSWIKAC2
+
+//Inferno Demon
+Inferno/Alert	INFRALRT
+Inferno/Walk	INFRWALK
+Inferno/Die		INFRDEAD
+Inferno/Active	INFRACTV
+Apocalypse/Meteor COMETLNC
+Apocalypse/Death COMETEXP
+Meteor/Call DFATTACK
+weapons/firmfi dsfirmfi
+weapons/firex3 dsfirex3
+weapons/firbfi dsfirbfi
+weapons/hellex dshellex
+weapons/justfi dsjustfi
+monster/bomb FIREBALL
+monster/firebeamdeath IMPFIRE2
+monster/firebeamstart DARKFLAM
+pyro/explosion DSPIPEX1
+Glyph/Start FLAMESTR
+harvester/ghost shghscrm
+
+Infdem/see BE-SPOT1
+Infdem/active BE-GROWL
+Infdem/pain BE-PAIN1
+Infdem/death DYING
+
+KoraxStep               step//this is present in Hexen, but needs to be defined for Doom or Heretic
+
+//SNDINFO for UnMancubus by Ozymandias81
+UNMNROAM UNMNROAM
+UNMNPAIN UNMNPAIN
+UNMNDYIN UNMNDYIN
+UNMNRAIL UNMNRAIL
+UNMBWOSH UNMBWOSH
+UNMBFIR2 UNMBFIR2
+UNMBMACX UNMBMACX
+UNMBMACI UNMBMACI
+UNMBOOOM UNMBOOOM
+
+//Hell Smith
+weapons/hellfi		      dshellfi
+weapons/hellex	              dshellex
+weapons/firex3                dsfirex3
+weapons/suldth                dssuldth
+weapons/diasht                dsdiasht
+weapons/bigbrn                dsbigbrn
+monster/smiths                dssmiths
+monster/smitha                dssmitha
+monster/smitht                dssmitht
+monster/smithp                dssmithp
+monster/smithd                dssmithd
+monster/smithr                dssmithr
+monster/smithw                dssmithw
+monster/hamswg                dshamswg
+monster/hamflr                dshamflr
+monster/hamhit                dshamhit
+monster/hamsht                dshamsht
+monster/dash                  dshdash
+
+//Avatar
+monster/avasit dsavasit
+monster/avapai dsavapai
+monster/avadth dsavadth
+monster/avaact dsavaact
+monster/avaatk dsavaatk
+MageLightningFire dslight
+weapons/justfi dsjustfi
+weapons/gntini dsgntini
+weapons/devexp dsdevexp
+weapons/bwoosh dsbwoosh
+weapons/firex2 dsfirex2
+weapons/devzap dsdevzap
+weapons/gnthit dsgnthit
+monster/hadsit dshadsit
+monster/bomb FIREBALL
+monster/explode DSCMTEXP
+
+//Aracnorb Queen
+queen/sight quesit
+queen/pain quepain
+queen/death quedie
+queen/active queact
+//queen/scream bqegg1a
+queen/fire qbfgfire
+electricplasma/shoot		PZAPSEE	
+electricplasma/hit		PZAPHIT
+queen/hit		qbfghit
+queen/melee		quebit
+
+//Aracnorb
+aracnorb/sight		dsaracst
+aracnorb/death		dsaracdt
+aracnorb/attack		dsaracfr
+aracnorb/melee		dsaracmlf
+
+//Blood Demon
+blooddemon/sight DSBLDSIT
+blooddemon/pain DSBLDPAI
+blooddemon/death DSBLDDTH
+blooddemon/active DSBLDACT
+blooddemon/melee DSBLDATK
+blooddemon/walk DSBLDWAL
+
+//ChaosWyvern
+ChaosWyvern/Sight	DSCHASIT
+ChaosWyvern/Act		DSCHASIT
+ChaosWyvern/Pain	DSCHAPN
+ChaosWyvern/Breath	DSCHAFIR
+ChaosWyvern/Bomb	DSCHAFI2
+ChaosWyvern/Death	DSCHADIE
+ChaosWyvern/Toast	DSTOASTY
+
+//Crash2
+$random crash/death 	{ crash/death1 crash/death2 }
+crash/death1 		DSIDETH
+crash/death2		DSIDIEHI
+crash/pain		DSIPAIN
+crash/sight		DSITAUNT
+
+//CrimsonDisciple
+DiscipleSee       CRMDSIT
+DisciplePain      CRMDPAI
+DiscipleDeath     CRMDDTH
+DiscipleSwing     CRMDATK
+DiscipleActive    CRMDACT
+DiscipleSplatter  CRMDXDT
+FireSpawn         FIRESPWN
+BloodShoot        BLODSHOT
+BloodBoom         BLODBOOM
+Rain              RAINFALL
+
+//Cultist
+$RANDOM monster/culsit { monster/culsi1 monster/culsi2 monster/culsi3 monster/culsi4 }
+monster/culsi1 dsculsi1
+monster/culsi2 dsculsi2
+monster/culsi3 dsculsi3
+monster/culsi4 dsculsi4
+
+monster/culatk dsculatk
+monster/culpai dsculpai
+$RANDOM monster/culdth { monster/culdt1 monster/culdt2 }
+monster/culdt1 dsculdt1
+monster/culdt2 dsculdt2
+
+$RANDOM monster/culact { monster/culac1 monster/culac2 }
+monster/culac1 dsculac1
+monster/culac2 dsculac2
+
+//cyberimp
+$RANDOM CIMPSIT { CIMPSIT1 CIMPSIT2 }
+CIMPSIT1	CIMPCIT1
+CIMPSIT2	CIMPSIT2
+$RANDOM CIMPDTH { CIMPDTH1 CIMPDTH2 }
+CIMPDTH1	CIMPDTH1
+CIMPDTH2	CIMPDTH2
+CIMPPAIN	CIMPPAIN
+CIMPACT		CIMPACT
+
+//dark clink
+clink/sight			clksit
+clink/attack			clkatk
+clink/pain			clkpai
+clink/death			clkdth
+clink/active			clkact
+
+
+//copied from Doom's Imp; used for his projectile
+imp/attack			dsfirsht
+imp/shotx			dsfirxpl
+
+//Imp Lord
+$RANDOM implord/macehit { implord/macehit1 implord/macehit2 }
+implord/macehit1 macehit1
+implord/macehit2 macehit2
+
+implord/maceswing maceswng
+implord/shieldshot shldshot
+
+implord/shieldshothit shldhit
+
+implord/familiarspawn fspawn
+
+
+$RANDOM batfam/idle { batfam/idle1 batfam/idle2 }
+batfam/idle1 batidle1
+batfam/idle2 batidle2
+
+batfam/pain batpain
+batfam/death batdie
+batfam/crash batcrash
+dragonfam/see dfsee
+dragonfam/pain dfpain
+dragonfam/death dfdie
+dragonfam/idle dfidle
+dragonfam/attack dfattack
+
+//these assignments are taken from Doom; they are necessary for Heretic/Hexen usage
+//note that you don't need to copy these definitions over if you're using this creature in Doom, nor do you need to copy the associated sound files
+$random imp/sight		{ imp/sight1  imp/sight2 }
+$random imp/death		{ imp/death1  imp/death2 }
+imp/sight1			dsbgsit1
+imp/sight2			dsbgsit2
+imp/active			dsbgact
+imp/pain			dspopain
+imp/death1			dsbgdth1
+imp/death2			dsbgdth2
+imp/attack			dsfirsht
+imp/shotx			dsfirxpl
+
+//LordOfHeresy
+LordOfHeresy/sight DSLOHSIT
+LordOfHeresy/act DSLOHACT
+LordOfHeresy/death DSLOHDTH
+
+//Maephisto
+chaingn		chaingun
+bolt		bolt
+charge		charge
+laser		laser
+$random sight { sight1 sight2 }
+sight1		sight1
+sight2		sight2
+death		death
+pain		pain
+$random idle  { idle1 idle2 idle3 idle4 idle5 }
+idle1		idle1
+idle2		idle2
+idle3		idle3
+idle4		idle4
+idle5		idle5
+
+//PyroSuccubus
+$random pyr/sight   { pyr/sight1  pyr/sight2 }
+pyr/pain            pyropain
+pyr/death           pyrodth
+pyr/sight1          pyrosit1
+pyr/active          pyroact
+weapons/pyrobrn      pyrobrn
+weapons/pyroxxpl      pyroxxpl
+
+$random pyr/active { pyr/active1 pyr/active2 }
+$random pyr/attack { pyr/attack2 pyr/attack2 pyr/attack2 pyr/attack2 pyr/attack2 pyr/attack2 pyr/attack1 }
+pyr/sight1		pyrosit1
+pyr/sight2		pyrosit2
+pyr/active1		pyroact1
+pyr/active2		pyroact2
+pyr/attack2		nosound
+pyr/pain		pyropain
+pyr/death		pyrodth
+weapons/pyrobrn		pyrobrn
+weapons/pyroxxpl    pyroxxpl
+pyr/resurrected		pyroheal
+
+////////////////////////
+// Terminator sounds  //
+////////////////////////
+
+monster/termsit tsight
+monster/termpin tpain1
+monster/termdth tdeath
+monster/brufir dsbrufir
+weapons/hellex dshellex
+
+$random Terminator/termact { termact1 termact2 }
+termact1		dsteract
+termact2		dsteact2
+$random Terminator/terstepA { terstep1 terstep2 }
+terstep1		 dststep1
+terstep2		 dststep2
+Terminator/terstepB dststep3
+Terminator/tershotA dstshot1
+Terminator/tershotB dstshot2
+
+//UndeadHunter
+undeadhunter/activate DSDHACT
+undeadhunter/pain DSDHPAIN
+undeadhunter/death DSDHDTH
+undeadhunter/xdeath DSDHXDTH
+
+//juggernaut
+juggernaut/see BTKUNQV2
+juggernaut/roam BTKUNQV1
+juggernaut/engine BTKENGN1
+juggernaut/death BTKDETH1
+$random juggernaut/pain { BTKPAIN1 BTKPAIN2 BTKPAIN3 }
+BTKPAIN1 BTKPAIN1
+BTKPAIN2 BTKPAIN2
+BTKPAIN3 BTKPAIN3
+
+
+$rolloff  juggernaut/see 900 1100
+$rolloff  juggernaut/engine 900 1100
+$rolloff  juggernaut/death 900 2800
+$rolloff  juggernaut/pain 900 1100
+$rolloff  juggernaut/roam 900 1100

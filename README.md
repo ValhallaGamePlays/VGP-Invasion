@@ -9,9 +9,10 @@ Please feel free to use this map set as an example/resource for your own invasio
     Contributors:
     Mapping- Dantos the Mutilator, LadySlash, Mr. Enchanter, Black Metal Chainsaw, Mr. Bad Guy, 
              Loismustdie555, and Miles Lowroad
-    Resources & Graphics- Black Metal Chainsaw, Sgt. Mark IV, Loismustdie555, Mr. Enchanter, and Mr. Bad Guy
+    Resources & Graphics- Black Metal Chainsaw, Sgt. Mark IV, Loismustdie555, Mr. Enchanter, Mr. Bad Guy
+	and =M=.
     Decorate and Scripting Help- Mr. Badguy, Mr. Enchanter, Loismustdie555, and Miles Lowroad
-    Music Reinstrumentation- =Memphis=
+    Music Reinstrumentation/development- =Memphis=
     Bug Testing- Scaryred24, Mondobizzaro, and TB-303
 
 Contact Miles with any questions or concerns: akthunderfolk@gmail.com

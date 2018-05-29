@@ -4,7 +4,7 @@ screenshots are in mapnchill discord group
 turn sphere respawn off
 nerf scrags or remove if we cant  
 
-map01has a misaligned texture, more ammo  
+//map01has a misaligned texture, more ammo 
 
 map02 move spheres, turbosphere is in the wrong spot, boss is easily stun locked  
 
@@ -18,7 +18,7 @@ map06 less drones, teleport is jank possibly remove it block teleport lines Dark
 
 map07 fix invincible spots drones really tone down amount of enemies Not respawn in further back areas more monsters that spawn in the new areas vent area has too much same texture elevators are useless if they dont come back up  
 
-map08 is fucked, dont know why probably too many things  
+//map08 is fucked, dont know why probably too many things  
 
 map09 music too short, Texture on top of texture, refer to screenshot, map moves up and down for some reason instead of gates opening, Fix rocket jumping spots, More texture variation and lighting   
 

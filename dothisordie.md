@@ -1,16 +1,17 @@
-﻿##Interpreted from written notes by Miles Lowroad  
+﻿## Interpreted from written notes by Miles Lowroad  
 
-screenshots are in mapnchill discord group
-turn sphere respawn off
-nerf scrags or remove if we cant  
+#### Screenshots are in #mapnchill discord group
 
-//map01has a misaligned texture, more ammo 
+- turn sphere respawn off
+- nerf scrags or remove if we cant  
 
-map02 move spheres, turbosphere is in the wrong spot, boss is easily stun locked  
+//map01 has a misaligned texture, more ammo 
 
-map03 misaligned textures, monsters get stuck in hallways, lighting is poor, make new torch actor with better gldefs  
+map02 move spheres(done), turbosphere is in the wrong spot (done), boss is easily stun locked  
 
-map04 Ceiling, monster spawning rooms need to be widened, quad damage respawns too fast  
+map03 misaligned textures(done), monsters get stuck in hallways(needs testing), lighting is poor, make new torch actor with better gldefs  
+
+map04 Ceiling(done), monster spawning rooms need to be widened, quad damage respawns too fast  
 
 map05 boss scales to the wrong size, should be bigger. weapons need to be made more visible from where they are placed 1 hellsmith per wave, less big wizards per wave  
 
